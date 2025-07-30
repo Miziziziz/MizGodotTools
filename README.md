@@ -15,6 +15,7 @@ Under MIT license so feel free to use in your own games.
 
 #### Globals
 * SaveManager
+* LevelManager
 
 ### Example Scenes
 
@@ -45,3 +46,9 @@ https://github.com/user-attachments/assets/c760555a-37f3-47e9-bbcb-f3ed50b859c8
 Save System : save_load_scene_1.tscn and save_load_scene_2.tscn
 
 https://github.com/user-attachments/assets/1b117209-6c5e-48bd-b7db-6821b4677d04
+
+Level System : test_level_1.tscn, test_level_2.tscn, test_level_3.tscn
+
+https://github.com/user-attachments/assets/9368e3bf-7ba1-46f9-ad18-015dae4bf0f2
+
+
