@@ -1,0 +1,19 @@
+[gd_scene load_steps=0 format=3 uid="uid://cil0aai0p0nbh"]
+
+[node name="KeybindInputSection" type="HBoxContainer"]
+custom_minimum_size = Vector2(0, 28)
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Invert Mouse Vertical:"
+horizontal_alignment = 2
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.1

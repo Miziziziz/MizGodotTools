@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://yq3vb5hxd8he"]
+
+[ext_resource type="Script" uid="uid://crbuamk42voga" path="res://fps_display/fps_display.gd" id="1_66rf4"]
+
+[node name="FPSDisplay" type="Label"]
+self_modulate = Color(1, 0.956863, 0, 1)
+offset_right = 40.0
+offset_bottom = 25.0
+text = "12"
+script = ExtResource("1_66rf4")

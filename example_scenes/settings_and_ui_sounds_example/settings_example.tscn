@@ -1,0 +1,28 @@
+[gd_scene load_steps=4 format=3 uid="uid://bpjubo2upmgyf"]
+
+[ext_resource type="Script" uid="uid://dieacsag107tc" path="res://example_scenes/settings_and_ui_sounds_example/settings_example.gd" id="1_vs3r8"]
+[ext_resource type="PackedScene" uid="uid://cpe4coxgldw1n" path="res://settings_menu/settings_menu.tscn" id="1_wm8g1"]
+[ext_resource type="PackedScene" uid="uid://djm0nm8f8ktos" path="res://sfx_utility/ui_sound_manager/ui_sound_player.tscn" id="3_jbgun"]
+
+[node name="SettingsExample" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_vs3r8")
+
+[node name="SettingsMenu" parent="." instance=ExtResource("1_wm8g1")]
+visible = false
+layout_mode = 1
+
+[node name="UISoundPlayer" parent="SettingsMenu" instance=ExtResource("3_jbgun")]
+
+[node name="OpenSettingsButton" type="Button" parent="."]
+layout_mode = 0
+offset_left = 52.0
+offset_top = 54.0
+offset_right = 169.0
+offset_bottom = 85.0
+text = "Open Settings"
