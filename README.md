@@ -17,6 +17,11 @@ Under MIT license so feel free to use in your own games.
 * SaveManager
 * LevelManager
 
+#### Audio Buses
+* Master
+* Music
+* Sfx
+
 ### Example Scenes
 
 Drop Shadows : drop_shadows_examples.tscn
@@ -50,5 +55,10 @@ https://github.com/user-attachments/assets/1b117209-6c5e-48bd-b7db-6821b4677d04
 Level System : test_level_1.tscn, test_level_2.tscn, test_level_3.tscn
 
 https://github.com/user-attachments/assets/9368e3bf-7ba1-46f9-ad18-015dae4bf0f2
+
+Settings Menu + Key rebinding + UI sfx: settings_example.tscn
+
+https://github.com/user-attachments/assets/b75e6d68-84a4-436b-8f1d-69521553e35b
+
 
 
