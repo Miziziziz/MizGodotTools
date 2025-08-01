@@ -26,3 +26,12 @@ offset_top = 54.0
 offset_right = 169.0
 offset_bottom = 85.0
 text = "Open Settings"
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 20.0
+offset_top = 127.0
+offset_right = 434.0
+offset_bottom = 176.0
+text = "Add UISoundPlayer as a child of the control node that you want to have sfx applied to its subchildren"
+autowrap_mode = 2

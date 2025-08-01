@@ -9,10 +9,13 @@ script = ExtResource("1_s6f18")
 
 [node name="HoverSound" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("1_5aiqc")
+bus = &"Sfx"
 
 [node name="ClickSound" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("3_cqox8")
+bus = &"Sfx"
 
 [node name="StartDragClickSound" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("3_cqox8")
 pitch_scale = 0.99
+bus = &"Sfx"
