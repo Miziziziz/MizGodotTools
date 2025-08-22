@@ -1,0 +1,82 @@
+[gd_scene load_steps=3 format=3 uid="uid://c5f6hjwiiao2o"]
+
+[ext_resource type="Script" uid="uid://ccs7m5xjm57pp" path="res://items/item_ui.gd" id="1_hmio8"]
+[ext_resource type="Texture2D" uid="uid://dokx2j47esqid" path="res://items/textures/error_item.png" id="2_6thgp"]
+
+[node name="ItemUI" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 160.0
+offset_bottom = 107.0
+script = ExtResource("1_hmio8")
+item_id = "error"
+shadow_offset = Vector2(2, 2)
+hover_info_format = "{name}
+----
+{type}
+Weight: {weight}
+\"{description}\"
+"
+
+[node name="ItemShadow" type="TextureRect" parent="."]
+self_modulate = Color(0, 0, 0, 1)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 2.0
+offset_top = 2.0
+offset_right = 2.0
+offset_bottom = 2.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_6thgp")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="ItemShadow2" type="TextureRect" parent="."]
+self_modulate = Color(0, 0, 0, 0.223529)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -1.0
+offset_top = -1.0
+offset_right = -1.0
+offset_bottom = -1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_6thgp")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="ItemTexture" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_6thgp")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="DebugSize" type="ColorRect" parent="ItemTexture"]
+self_modulate = Color(1, 1, 1, 0.109804)
+show_behind_parent = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="AmountInStackDisplay" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -23.0
+offset_right = 40.0
+grow_vertical = 0
+text = "1"

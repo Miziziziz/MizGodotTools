@@ -1,0 +1,100 @@
+[gd_scene load_steps=10 format=3 uid="uid://idnfxnftitl6"]
+
+[ext_resource type="Script" uid="uid://b20iloo6mtaof" path="res://example_scenes/inventory_and_items_example/player_with_inventory.gd" id="1_bqfjm"]
+[ext_resource type="Texture2D" uid="uid://c485t74cvfska" path="res://effects/textures/white_circle.png" id="2_52gdm"]
+[ext_resource type="PackedScene" uid="uid://drgy5ywjdpjnl" path="res://characters_utility/top_down_character_mover/top_down_character_mover.tscn" id="3_ofafn"]
+[ext_resource type="PackedScene" uid="uid://c2vvxd4ikbac6" path="res://input/top_down_input.tscn" id="4_2p2xp"]
+[ext_resource type="PackedScene" uid="uid://cxwppbr1341ef" path="res://inventory/item_world_detector.tscn" id="5_tjd7n"]
+[ext_resource type="PackedScene" uid="uid://bmlo74snskkic" path="res://inventory/inventory.tscn" id="6_kw8fm"]
+[ext_resource type="PackedScene" uid="uid://cidg4pb7yh200" path="res://inventory/loose_container.tscn" id="7_ofafn"]
+[ext_resource type="PackedScene" uid="uid://bklpq6grmf8l4" path="res://inventory/slot_container.tscn" id="8_2p2xp"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_1titp"]
+radius = 32.1403
+
+[node name="Player" type="CharacterBody2D" groups=["player"]]
+collision_layer = 2
+collision_mask = 3
+script = ExtResource("1_bqfjm")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_1titp")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_52gdm")
+
+[node name="Sprite2D2" type="Sprite2D" parent="Sprite2D"]
+position = Vector2(31, 0)
+scale = Vector2(0.78125, 0.3125)
+texture = ExtResource("2_52gdm")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="TopDownCharacterMover" parent="." instance=ExtResource("3_ofafn")]
+instantly_turn = true
+
+[node name="TopDownInput" parent="." instance=ExtResource("4_2p2xp")]
+
+[node name="itemWorldDetector" parent="." instance=ExtResource("5_tjd7n")]
+
+[node name="UICanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Inventory" parent="UICanvasLayer" node_paths=PackedStringArray("container_to_pickup_to") instance=ExtResource("6_kw8fm")]
+unique_name_in_owner = true
+container_to_pickup_to = NodePath("Containers/LooseContainer")
+
+[node name="InventoryDropItemsArea" parent="UICanvasLayer/Inventory/Containers" index="0" node_paths=PackedStringArray("item_world_drop_point")]
+item_world_drop_point = NodePath("../../../..")
+
+[node name="LooseContainer" parent="UICanvasLayer/Inventory/Containers" index="1" instance=ExtResource("7_ofafn")]
+offset_left = 9.0
+offset_top = 191.0
+offset_right = 472.0
+offset_bottom = 776.0
+
+[node name="SlotContainer" parent="UICanvasLayer/Inventory/Containers" index="2" instance=ExtResource("8_2p2xp")]
+offset_left = 783.0
+offset_top = 174.0
+offset_right = 920.0
+offset_bottom = 330.0
+restrict_to_item_type = "weapon"
+
+[node name="Label" type="Label" parent="UICanvasLayer/Inventory/Containers/SlotContainer"]
+layout_mode = 0
+offset_left = 2.0
+offset_top = -30.0
+offset_right = 42.0
+offset_bottom = -7.0
+text = "weapon slot"
+
+[node name="SlotContainer2" parent="UICanvasLayer/Inventory/Containers" index="3" instance=ExtResource("8_2p2xp")]
+offset_left = 788.0
+offset_top = 375.0
+offset_right = 925.0
+offset_bottom = 531.0
+restrict_to_item_type = "ammo"
+
+[node name="Label" type="Label" parent="UICanvasLayer/Inventory/Containers/SlotContainer2"]
+layout_mode = 0
+offset_left = 2.0
+offset_top = -30.0
+offset_right = 42.0
+offset_bottom = -7.0
+text = "ammo slot"
+
+[node name="ItemNearbyInfo" type="Label" parent="UICanvasLayer"]
+visible = false
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -24.5
+offset_top = -132.0
+offset_right = 24.5
+offset_bottom = -109.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Sword"
+
+[editable path="UICanvasLayer/Inventory"]

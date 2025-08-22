@@ -1,0 +1,79 @@
+[gd_scene load_steps=5 format=3 uid="uid://bmlo74snskkic"]
+
+[ext_resource type="Script" uid="uid://mmb3ieaoukaa" path="res://inventory/inventory.gd" id="1_62wf1"]
+[ext_resource type="AudioStream" uid="uid://dc472o58ytk4h" path="res://items/sfx/placeholder_drop_inv.wav" id="2_f8i2h"]
+[ext_resource type="PackedScene" uid="uid://c5ldqt0sy1n0g" path="res://inventory/inventory_drop_items_area.tscn" id="2_lhcfm"]
+[ext_resource type="AudioStream" uid="uid://bi82brg3q3ykd" path="res://items/sfx/placeholder_grab_inv.wav" id="3_lhcfm"]
+
+[node name="Inventory" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_62wf1")
+
+[node name="Containers" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 80.0
+offset_top = 60.0
+offset_right = -80.0
+offset_bottom = -60.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="InventoryDropItemsArea" parent="Containers" instance=ExtResource("2_lhcfm")]
+offset_left = 1050.0
+offset_top = 699.0
+offset_right = 1450.0
+offset_bottom = 1099.0
+
+[node name="ItemDraggingBase" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Title" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -191.0
+offset_top = 83.0
+offset_right = 20.0
+offset_bottom = 106.0
+grow_horizontal = 2
+text = "Inventory"
+
+[node name="HoverInfo" type="Label" parent="."]
+visible = false
+layout_mode = 0
+offset_right = 127.0
+offset_bottom = 114.0
+text = "placeholder text"
+
+[node name="Panel" type="Panel" parent="HoverInfo"]
+show_behind_parent = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Sfx" type="Node" parent="."]
+
+[node name="OpenSound" type="AudioStreamPlayer" parent="Sfx"]
+stream = ExtResource("2_f8i2h")
+
+[node name="CloseSound" type="AudioStreamPlayer" parent="Sfx"]
+stream = ExtResource("3_lhcfm")
+
+[node name="ItemSound" type="AudioStreamPlayer" parent="Sfx"]

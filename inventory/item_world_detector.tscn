@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://cxwppbr1341ef"]
+
+[ext_resource type="Script" uid="uid://1q3gd0ra3xre" path="res://inventory/item_world_detector.gd" id="1_vm6lc"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_0nwbe"]
+radius = 41.7732
+
+[node name="itemWorldDetector" type="Area2D"]
+collision_layer = 0
+collision_mask = 8
+monitorable = false
+script = ExtResource("1_vm6lc")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_0nwbe")
+
+[node name="RayCast2D" type="RayCast2D" parent="."]
+enabled = false

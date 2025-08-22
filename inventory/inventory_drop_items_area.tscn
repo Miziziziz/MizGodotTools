@@ -1,0 +1,42 @@
+[gd_scene load_steps=5 format=3 uid="uid://c5ldqt0sy1n0g"]
+
+[ext_resource type="PackedScene" uid="uid://dfl36kpwn0r64" path="res://inventory/inventory_container.tscn" id="1_y6gpl"]
+[ext_resource type="Script" uid="uid://ts31sdbk24x5" path="res://inventory/inventory_drop_items_area.gd" id="2_ylgmw"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ylgmw"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+border_width_left = 9
+border_width_top = 9
+border_width_right = 9
+border_width_bottom = 9
+
+[sub_resource type="LabelSettings" id="LabelSettings_8gqka"]
+font_size = 91
+
+[node name="InventoryDropItemsArea" instance=ExtResource("1_y6gpl")]
+script = ExtResource("2_ylgmw")
+
+[node name="Panel" type="Panel" parent="." index="1"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_ylgmw")
+
+[node name="Label" type="Label" parent="." index="2"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -126.5
+offset_top = -62.5
+offset_right = 126.5
+offset_bottom = 62.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "DROP"
+label_settings = SubResource("LabelSettings_8gqka")

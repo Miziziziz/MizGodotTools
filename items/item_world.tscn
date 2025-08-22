@@ -1,0 +1,32 @@
+[gd_scene load_steps=6 format=3 uid="uid://bs6ikdqod3odw"]
+
+[ext_resource type="Script" uid="uid://b6yaf62t62q8v" path="res://items/item_world.gd" id="1_b2rwp"]
+[ext_resource type="Texture2D" uid="uid://dokx2j47esqid" path="res://items/textures/error_item.png" id="2_cxs88"]
+[ext_resource type="Shader" uid="uid://ciqakdhefsm8b" path="res://items/outline.gdshader" id="4_mv0n1"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_b2rwp"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_0a0yl"]
+shader = ExtResource("4_mv0n1")
+shader_parameter/color = Color(1, 1, 1, 1)
+shader_parameter/width = 3.0
+shader_parameter/pattern = 2
+shader_parameter/inside = false
+shader_parameter/add_margins = true
+
+[node name="ItemWorld" type="Area2D"]
+collision_layer = 8
+collision_mask = 0
+monitoring = false
+script = ExtResource("1_b2rwp")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_b2rwp")
+
+[node name="ItemGraphics" type="Sprite2D" parent="."]
+texture = ExtResource("2_cxs88")
+
+[node name="ItemOutline" type="Sprite2D" parent="."]
+visible = false
+material = SubResource("ShaderMaterial_0a0yl")
+texture = ExtResource("2_cxs88")

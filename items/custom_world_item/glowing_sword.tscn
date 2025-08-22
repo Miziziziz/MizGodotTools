@@ -1,0 +1,67 @@
+[gd_scene load_steps=8 format=3 uid="uid://byk311ntf3ee4"]
+
+[ext_resource type="PackedScene" uid="uid://bs6ikdqod3odw" path="res://items/item_world.tscn" id="1_lr24e"]
+[ext_resource type="Texture2D" uid="uid://bqcl400wcomkk" path="res://items/textures/glowing_sword_world.png" id="2_ldclc"]
+[ext_resource type="Texture2D" uid="uid://c7ng1ly7e5byb" path="res://effects/textures/white_circle_gradient_trans.png" id="3_pqyi5"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pqyi5"]
+size = Vector2(26, 60)
+
+[sub_resource type="Animation" id="Animation_j4v6b"]
+resource_name = "blink"
+loop_mode = 2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0.625, 0.625), Vector2(0.484375, 0.484375)]
+}
+
+[sub_resource type="Animation" id="Animation_3imt8"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0.625, 0.625)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_2hwgu"]
+_data = {
+&"RESET": SubResource("Animation_3imt8"),
+&"blink": SubResource("Animation_j4v6b")
+}
+
+[node name="GlowingSword" instance=ExtResource("1_lr24e")]
+item_id = "glowing_sword"
+custom_graphics = true
+
+[node name="CollisionShape2D" parent="." index="0"]
+shape = SubResource("RectangleShape2D_pqyi5")
+
+[node name="ItemGraphics" parent="." index="1"]
+texture = ExtResource("2_ldclc")
+
+[node name="WhiteCircleGradientTrans" type="Sprite2D" parent="." index="3"]
+self_modulate = Color(1, 0.784314, 1, 0.423529)
+position = Vector2(0, -3)
+scale = Vector2(0.625, 0.625)
+texture = ExtResource("3_pqyi5")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="WhiteCircleGradientTrans" index="0"]
+libraries = {
+&"": SubResource("AnimationLibrary_2hwgu")
+}
+autoplay = "blink"

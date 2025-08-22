@@ -1,0 +1,40 @@
+[gd_scene load_steps=3 format=3 uid="uid://cidg4pb7yh200"]
+
+[ext_resource type="PackedScene" uid="uid://dfl36kpwn0r64" path="res://inventory/inventory_container.tscn" id="1_sxg0u"]
+[ext_resource type="Script" uid="uid://htbsr4h3ptdy" path="res://inventory/loose_container.gd" id="2_o3err"]
+
+[node name="LooseContainer" instance=ExtResource("1_sxg0u")]
+offset_right = 463.0
+offset_bottom = 585.0
+script = ExtResource("2_o3err")
+random_offset_max = 60.0
+
+[node name="Graphics" type="Control" parent="." index="0"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect2" type="ColorRect" parent="Graphics" index="0"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -7.0
+offset_top = -7.0
+offset_right = 7.0
+offset_bottom = 7.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.145266, 0.145266, 0.145266, 1)
+
+[node name="ColorRect" type="ColorRect" parent="Graphics" index="1"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.26779, 0.26779, 0.26779, 1)

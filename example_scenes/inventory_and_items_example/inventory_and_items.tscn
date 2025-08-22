@@ -1,0 +1,77 @@
+[gd_scene load_steps=6 format=3 uid="uid://cio1t5hcavphr"]
+
+[ext_resource type="PackedScene" uid="uid://idnfxnftitl6" path="res://example_scenes/inventory_and_items_example/player_with_inventory.tscn" id="1_8e1jl"]
+[ext_resource type="PackedScene" uid="uid://bs6ikdqod3odw" path="res://items/item_world.tscn" id="3_glang"]
+[ext_resource type="PackedScene" uid="uid://byk311ntf3ee4" path="res://items/custom_world_item/glowing_sword.tscn" id="4_0qos2"]
+[ext_resource type="Texture2D" uid="uid://c6b5ihc5jnyoh" path="res://effects/textures/white_sq.png" id="6_nwfn2"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_j22h2"]
+size = Vector2(62, 62)
+
+[node name="InventoryAndItems" type="Node2D"]
+
+[node name="Player" parent="." instance=ExtResource("1_8e1jl")]
+position = Vector2(351, 255)
+
+[node name="Block" type="StaticBody2D" parent="."]
+position = Vector2(-82, 546)
+scale = Vector2(4.6582, 4.92471)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Block"]
+shape = SubResource("RectangleShape2D_j22h2")
+
+[node name="Sprite2D" type="Sprite2D" parent="Block"]
+self_modulate = Color(0, 0, 0, 1)
+texture = ExtResource("6_nwfn2")
+
+[node name="Block2" type="StaticBody2D" parent="."]
+position = Vector2(1071, 100)
+scale = Vector2(0.32079, 6.33563)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Block2"]
+shape = SubResource("RectangleShape2D_j22h2")
+
+[node name="Sprite2D" type="Sprite2D" parent="Block2"]
+self_modulate = Color(0, 0, 0, 1)
+texture = ExtResource("6_nwfn2")
+
+[node name="Sword" parent="." instance=ExtResource("3_glang")]
+position = Vector2(488, 407)
+rotation = -0.588839
+item_id = "sword"
+
+[node name="Sword2" parent="." instance=ExtResource("3_glang")]
+position = Vector2(409, 384)
+rotation = 0.871847
+item_id = "sword"
+
+[node name="Arrows" parent="." instance=ExtResource("3_glang")]
+position = Vector2(491, 174)
+rotation = -0.417804
+item_id = "arrows"
+
+[node name="Arrows2" parent="." instance=ExtResource("3_glang")]
+position = Vector2(529, 260)
+rotation = 0.275028
+item_id = "arrows"
+amount_in_stack = 30
+
+[node name="Arrows3" parent="." instance=ExtResource("3_glang")]
+position = Vector2(574, 202)
+rotation = 0.275028
+item_id = "arrows"
+amount_in_stack = 2
+
+[node name="GlowingSword" parent="." instance=ExtResource("4_0qos2")]
+position = Vector2(592, 386)
+amount_in_stack = null
+
+[node name="Label" type="Label" parent="."]
+offset_right = 40.0
+offset_bottom = 23.0
+text = "WASD - move
+Mouse - aim
+T - to toggle inventory
+E - pick up items
+Left Mouse - Drag and place items in inventory
+"

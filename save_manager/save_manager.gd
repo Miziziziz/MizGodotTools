@@ -21,6 +21,8 @@ const AUTOSAVE_PATH = SAVE_FILE_PATH_FORMAT % "autosave"
 const QUICKSAVE_PATH = SAVE_FILE_PATH_FORMAT % "quicksave"
 const LAST_SAVED_FILE = "user://last_played.save"
 
+const INSTANCE_TYPE_STR = "instance_type"
+
 signal game_saved(save_file_path: String)
 signal game_load_complete
 
