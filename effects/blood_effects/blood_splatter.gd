@@ -81,8 +81,8 @@ func on_hit_ground(play_splatter_sound=false):
 
 func get_save_data() -> Dictionary:
 	var save_data = {}
-	save_data[SaveManager.INSTANCE_ID_KEY] = "res://effects/blood_effects/blood_splatter.tscn" # either pass path or uid
-	save_data.instance_tag = "blood_splatter"
+	var resource_path = "res://effects/blood_effects/blood_splatter.tscn" # either pass path or uid
+	save_data[SaveManager.INSTANCE_ID_KEY] = resource_path
 	save_data.sprite_frame = sprite_2d.frame
 	save_data.sprite_rotation = sprite_2d.rotation
 	save_data.sprite_scale = sprite_2d.scale.x # will always be scaled uniformly

@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://idnfxnftitl6"]
+[gd_scene load_steps=11 format=3 uid="uid://idnfxnftitl6"]
 
 [ext_resource type="Script" uid="uid://b20iloo6mtaof" path="res://example_scenes/inventory_and_items_example/player_with_inventory.gd" id="1_bqfjm"]
 [ext_resource type="Texture2D" uid="uid://c485t74cvfska" path="res://effects/textures/white_circle.png" id="2_52gdm"]
@@ -6,8 +6,9 @@
 [ext_resource type="PackedScene" uid="uid://c2vvxd4ikbac6" path="res://input/top_down_input.tscn" id="4_2p2xp"]
 [ext_resource type="PackedScene" uid="uid://cxwppbr1341ef" path="res://inventory/item_world_detector.tscn" id="5_tjd7n"]
 [ext_resource type="PackedScene" uid="uid://bmlo74snskkic" path="res://inventory/inventory.tscn" id="6_kw8fm"]
-[ext_resource type="PackedScene" uid="uid://cidg4pb7yh200" path="res://inventory/loose_container.tscn" id="7_ofafn"]
-[ext_resource type="PackedScene" uid="uid://bklpq6grmf8l4" path="res://inventory/slot_container.tscn" id="8_2p2xp"]
+[ext_resource type="PackedScene" uid="uid://cidg4pb7yh200" path="res://inventory/loose_inventory_container.tscn" id="7_ofafn"]
+[ext_resource type="PackedScene" uid="uid://bklpq6grmf8l4" path="res://inventory/slot_inventory_container.tscn" id="8_2p2xp"]
+[ext_resource type="PackedScene" uid="uid://d3id3ou8eqwo6" path="res://inventory/grid_inventory_container.tscn" id="9_2p2xp"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_1titp"]
 radius = 32.1403
@@ -52,6 +53,14 @@ offset_top = 191.0
 offset_right = 472.0
 offset_bottom = 776.0
 
+[node name="Label" type="Label" parent="UICanvasLayer/Inventory/Containers/LooseContainer"]
+layout_mode = 0
+offset_top = -70.0
+offset_right = 360.0
+offset_bottom = -21.0
+text = "Loose Container
+(note: items use actual texture size in this one)"
+
 [node name="SlotContainer" parent="UICanvasLayer/Inventory/Containers" index="2" instance=ExtResource("8_2p2xp")]
 offset_left = 783.0
 offset_top = 174.0
@@ -81,6 +90,20 @@ offset_top = -30.0
 offset_right = 42.0
 offset_bottom = -7.0
 text = "ammo slot"
+
+[node name="GridInventoryContainer" parent="UICanvasLayer/Inventory/Containers" index="4" instance=ExtResource("9_2p2xp")]
+offset_left = 994.0
+offset_top = 61.0
+offset_right = 1489.0
+offset_bottom = 604.0
+
+[node name="Label" type="Label" parent="UICanvasLayer/Inventory/Containers/GridInventoryContainer"]
+layout_mode = 0
+offset_left = 2.0
+offset_top = -30.0
+offset_right = 42.0
+offset_bottom = -7.0
+text = "Grid Inventory container"
 
 [node name="ItemNearbyInfo" type="Label" parent="UICanvasLayer"]
 visible = false

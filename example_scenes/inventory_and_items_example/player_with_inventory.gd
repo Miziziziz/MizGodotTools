@@ -21,8 +21,8 @@ func _process(_delta: float) -> void:
 	if nearest_item:
 		item_nearby_info.show()
 		item_nearby_info.text = "Press 'E' to pick up: " + ItemDB.get_item_name(nearest_item.item_id)
-		if nearest_item.stackable:
-			item_nearby_info.text += "(%s)" % nearest_item.amount_in_stack
+		if nearest_item.item_dynamic_data.stackable:
+			item_nearby_info.text += "(%s)" % nearest_item.item_dynamic_data.amount_in_stack
 		if Input.is_action_just_pressed("interact"):
 			inventory.pickup_world_item(nearest_item)
 

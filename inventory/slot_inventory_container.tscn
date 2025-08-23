@@ -1,0 +1,34 @@
+[gd_scene load_steps=3 format=3 uid="uid://bklpq6grmf8l4"]
+
+[ext_resource type="PackedScene" uid="uid://dfl36kpwn0r64" path="res://inventory/inventory_container.tscn" id="1_aqnrl"]
+[ext_resource type="Script" uid="uid://dnt34cg71fpbq" path="res://inventory/slot_inventory_container.gd" id="2_bcygj"]
+
+[node name="SlotInventoryContainer" instance=ExtResource("1_aqnrl")]
+offset_right = 116.0
+offset_bottom = 116.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+script = ExtResource("2_bcygj")
+restrict_to_item_type = ""
+
+[node name="Graphics" type="ColorRect" parent="." index="0"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.125911, 0.125911, 0.125911, 1)
+
+[node name="Graphics2" type="ColorRect" parent="Graphics" index="0"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 5.0
+offset_top = 5.0
+offset_right = -5.0
+offset_bottom = -5.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.185981, 0.185981, 0.185981, 1)

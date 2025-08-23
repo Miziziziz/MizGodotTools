@@ -1,4 +1,4 @@
-class_name SlotContainer extends InventoryContainer
+class_name SlotInventoryContainer extends InventoryContainer
 
 ## Carries exactly one item
 
@@ -40,3 +40,5 @@ func load_save_data(data: Dictionary):
 	if item:
 		items_base.add_child(item)
 		insert_item(item, true)
+		await get_tree().process_frame
+		item.set_custom_size(size)

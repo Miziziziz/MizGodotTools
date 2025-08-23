@@ -51,7 +51,7 @@ func insert_item_at_first_available_spot(item: ItemUI) -> bool:
 	return insert_item(item, true)
 
 func fill_identical_stackables(new_item: ItemUI): # returns true if new_item will be deleted
-	if !new_item.stackable:
+	if !new_item.item_dynamic_data.stackable:
 		return false
 	
 	var returning_item = new_item.last_container_inside_of == self
@@ -62,18 +62,18 @@ func fill_identical_stackables(new_item: ItemUI): # returns true if new_item wil
 		if item.item_id == new_item.item_id:
 			var item_filling = item
 			var item_emptying = new_item
-			var space = item_filling.max_stack - item_filling.amount_in_stack
-			var amnt_in_new_item = item_emptying.amount_in_stack
+			var space = item_filling.item_dynamic_data.max_stack - item_filling.item_dynamic_data.amount_in_stack
+			var amnt_in_new_item = item_emptying.item_dynamic_data.amount_in_stack
 			if amnt_in_new_item <= space:
 				remove_item(item_emptying)
 				item_emptying.queue_free()
-				item_filling.amount_in_stack += amnt_in_new_item
+				item_filling.item_dynamic_data.amount_in_stack += amnt_in_new_item
 				item_inserted.emit(item_filling)
 				item_successfully_inserted.emit()
 				return true
 			else:
-				item_filling.amount_in_stack += space
-				item_emptying.amount_in_stack -= space
+				item_filling.item_dynamic_data.amount_in_stack += space
+				item_emptying.item_dynamic_data.amount_in_stack -= space
 	return false
 
 func grab_item(cursor_pos: Vector2) -> ItemUI:
@@ -116,7 +116,7 @@ func get_item_under_pos(cursor_pos: Vector2) -> ItemUI:
 			return item
 	return null
 
-func get_all_items() -> Array:
+func get_all_items() -> Array[ItemUI]:
 	return list_of_contained_items
 
 func get_save_data():

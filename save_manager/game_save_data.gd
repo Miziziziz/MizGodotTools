@@ -32,8 +32,10 @@ func load_all_levels_data_from_dict(all_levels_data_dict: Dictionary):
 		var level_data_dict = all_levels_data_dict[scene_key]
 		if "saved_nodes" in level_data_dict:
 			new_level_save_data.saved_nodes = level_data_dict.saved_nodes
-		if "deleted_nodes" in level_data_dict:
-			new_level_save_data.deleted_nodes = level_data_dict.deleted_nodes
+		if "deleted_node_paths" in level_data_dict:
+			var str_arr : Array[String]
+			str_arr.assign(level_data_dict.deleted_node_paths)
+			new_level_save_data.deleted_node_paths = str_arr
 		all_levels_data[scene_key] = new_level_save_data
 
 func save_data_to_file(file_path: String):
@@ -41,10 +43,10 @@ func save_data_to_file(file_path: String):
 	data.last_active_level_scene_path = last_active_level_scene_path
 	data.all_levels_data = get_all_levels_data_as_dict()
 	data.player_data = player_data
-	
 	var save_game = FileAccess.open(file_path, FileAccess.WRITE)
 	var json_string = JSON.stringify(data)
 	save_game.store_string(json_string)
+	#print("DATA STORED\n %s \n" % json_string)
 
 static func load_data_from_file(file_path: String) -> GameSaveData:
 	if !FileAccess.file_exists(file_path):
@@ -57,6 +59,7 @@ static func load_data_from_file(file_path: String) -> GameSaveData:
 		print("ERROR LOADING FILE, UNABLE TO PARSE")
 		return null
 	
+	#print("DATA LOADED\n %s \n" % data)
 	var new_game_save_data = GameSaveData.new()
 	if "last_active_level_scene_path" in data:
 		new_game_save_data.last_active_level_scene_path = data.last_active_level_scene_path

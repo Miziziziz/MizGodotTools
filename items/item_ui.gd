@@ -12,12 +12,7 @@ class_name ItemUI extends Control
 @export var shadow_offset : Vector2
 @onready var amount_in_stack_display: Label = $AmountInStackDisplay
 
-var stackable = false
-var max_stack = 1
-var amount_in_stack = 1:
-	set(value):
-		amount_in_stack = value
-		update_stackable_graphics()
+var item_dynamic_data: ItemDynamicData
 
 @export_multiline var hover_info_format = ""
 
@@ -27,29 +22,31 @@ var base_size : Vector2
 var stack_display_textures = []
 
 func _ready():
+	if item_dynamic_data == null:
+		item_dynamic_data = ItemDynamicData.create_new_item_dynamic_data(item_id, true)
+	else:
+		item_dynamic_data.is_ui_item = true
+		item_dynamic_data.clear_signals()
+	item_dynamic_data.update_stack_texture_ui.connect(update_texture)
+	
 	var item_data = ItemDB.get_item_data(item_id)
-	if ItemDB.ITEM_MAX_STACK_STR in item_data:
-		stackable = true
-		max_stack = item_data[ItemDB.ITEM_MAX_STACK_STR]
 	
 	#item_texture.texture = load(item_data[ItemDB.GRAPHICS_UI_PATH_STR])
 	
 	var texture_path = item_data[ItemDB.GRAPHICS_UI_PATH_STR]
 	if texture_path is Array:
-		stack_display_textures = texture_path
-		texture_path = stack_display_textures[0]
+		texture_path = texture_path[0]
 	item_texture.texture = load(texture_path)
 	
 	#update_size() # throws warning spam, no way to ignore :/
 	await get_tree().process_frame # sometimes size is overridden after _ready so have to call it after
 	update_size()
 	
-	item_shadow.texture = item_texture.texture
-	item_shadow.position = item_texture.position + shadow_offset
-	item_shadow_2.texture = item_texture.texture
-	item_shadow_2.position = item_texture.position - shadow_offset / 2.0
 	amount_in_stack_display.hide()
-	update_stackable_graphics()
+	update_texture(item_texture.texture)
+	item_shadow.position = item_texture.position + shadow_offset
+	item_shadow_2.position = item_texture.position - shadow_offset / 2.0
+	item_dynamic_data.update_stack_texture()
 
 func update_size():
 	size = item_texture.texture.get_size()
@@ -59,19 +56,12 @@ func update_size():
 	item_shadow.size = size
 	item_shadow_2.size = size
 
-func update_stackable_graphics():
-	if !stackable:
-		return
-	amount_in_stack_display.visible = stackable
-	amount_in_stack_display.text = str(amount_in_stack)
-	if stack_display_textures.is_empty():
-		return
-	var ind = clamp(amount_in_stack - 1, 0, stack_display_textures.size()-1)
-	var texture = load(stack_display_textures[ind])
-	
+func update_texture(texture: Texture):
 	item_texture.texture = texture
 	item_shadow.texture = texture
 	item_shadow_2.texture = texture
+	amount_in_stack_display.visible = item_dynamic_data.stackable
+	amount_in_stack_display.text = str(item_dynamic_data.amount_in_stack)
 
 func grab(_cursor_pos: Vector2):
 	position_when_grabbed = global_position
@@ -119,16 +109,14 @@ func get_hover_info_text():
 
 func get_item_world_instance() -> ItemWorld:
 	var item_world : ItemWorld = ItemDB.create_item_for_world(item_id)
-	if stackable:
-		item_world.amount_in_stack = amount_in_stack
+	item_world.item_dynamic_data = item_dynamic_data
 	return item_world
 
 func get_save_data(save_position=false) -> Dictionary: # not all containers need position stored
 	var data = {"id": item_id}
-	if stackable:
-		data.amount = amount_in_stack
+	data.item_dynamic_data = item_dynamic_data.get_save_data()
 	if save_position:
-		data.position = var_to_str(position)
+		data.position = var_to_str(Vector2i(position)) # round to int to save space in save file
 	return data
 
 static func create_item_ui_from_save_data(data: Dictionary):
@@ -136,8 +124,10 @@ static func create_item_ui_from_save_data(data: Dictionary):
 		return null
 	var _item_id = data.id
 	var item_ui : ItemUI = ItemDB.create_item_for_ui(_item_id)
-	if "amount" in data:
-		item_ui.amount_in_stack = roundi(data.amount)
+	if "item_dynamic_data" in data:
+		var new_item_dynamic_data = ItemDynamicData.create_new_item_dynamic_data(_item_id, true)
+		new_item_dynamic_data.load_save_data(data.item_dynamic_data)
+		item_ui.item_dynamic_data = new_item_dynamic_data
 	if "position" in data:
 		item_ui.position = str_to_var(data.position) # will manually have to make sure this is correct in container
 	return item_ui

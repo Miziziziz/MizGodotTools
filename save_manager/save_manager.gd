@@ -9,8 +9,8 @@ extends Node
 ## Designed with an 'Open World' style game in mind, as in you can return to levels after visiting them once
 ## and changes will persist
 
-const NODE_PATH_KEY = "node_path" # used by non instances to specify their path in the scene
-const INSTANCE_ID_KEY = "instance_uid" # used by serializable instances to contain uid or resource path
+const NODE_PATH_KEY = "node_path" # used by non instances to specify their path in the scene, this would go on something like a door
+const INSTANCE_ID_KEY = "instance_uid" # used by serializable instances to contain uid or resource path, this would go on a dropped item or blood splatter, see item_world.gd get_save_data() for example
 
 var verbose = false
 var game_loading = false
@@ -20,8 +20,6 @@ const SAVE_FILE_PATH_FORMAT = SAVE_FILE_DIRECTORY + "%s.save"
 const AUTOSAVE_PATH = SAVE_FILE_PATH_FORMAT % "autosave"
 const QUICKSAVE_PATH = SAVE_FILE_PATH_FORMAT % "quicksave"
 const LAST_SAVED_FILE = "user://last_played.save"
-
-const INSTANCE_TYPE_STR = "instance_type"
 
 signal game_saved(save_file_path: String)
 signal game_load_complete
@@ -131,7 +129,10 @@ func get_game_save_data() -> GameSaveData:
 		if node.has_method("get_save_data"):
 			var data = node.get_save_data()
 			if INSTANCE_ID_KEY not in data:
-				data[NODE_PATH_KEY] = node.get_path()
+				if node.is_in_group("instanced"):
+					print_debug("WARNING: instanced node does not have resource path set: '", node.get_path(), "' Node will not be saved")
+				else:
+					data[NODE_PATH_KEY] = node.get_path()
 			nodes_save_data.append(data)
 	var level_save_data = LevelSaveData.new()
 	level_save_data.saved_nodes = nodes_save_data
@@ -141,7 +142,7 @@ func get_game_save_data() -> GameSaveData:
 	print_save_status("GAME SAVED")
 	return game_save_data
 
-## loading_from_save determines if we're loading a save file or switching levels
+## 'loading_from_save' determines if we're loading a save file or switching levels
 ## if switching level, scene will be changed and player transform set by LevelManager
 func load_game_save_data(game_save_data: GameSaveData, loading_from_save: bool):
 	# world data

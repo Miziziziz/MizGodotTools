@@ -1,4 +1,4 @@
-class_name LooseContainer extends InventoryContainer
+class_name LooseInventoryContainer extends InventoryContainer
 
 # carries items loosely, non grid container
 

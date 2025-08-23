@@ -54,17 +54,16 @@ item_id = "arrows"
 position = Vector2(529, 260)
 rotation = 0.275028
 item_id = "arrows"
-amount_in_stack = 30
+starting_stack_size = 2
 
 [node name="Arrows3" parent="." instance=ExtResource("3_glang")]
 position = Vector2(574, 202)
 rotation = 0.275028
 item_id = "arrows"
-amount_in_stack = 2
+starting_stack_size = 30
 
 [node name="GlowingSword" parent="." instance=ExtResource("4_0qos2")]
 position = Vector2(592, 386)
-amount_in_stack = null
 
 [node name="Label" type="Label" parent="."]
 offset_right = 40.0
@@ -74,4 +73,5 @@ Mouse - aim
 T - to toggle inventory
 E - pick up items
 Left Mouse - Drag and place items in inventory
-"
+F1 - quick save
+F5 - quick load"
