@@ -29,8 +29,8 @@ func _process(_delta: float) -> void:
 
 func get_save_data():
 	return {
-		"position": var_to_str(global_position),
-		"rotation": global_rotation,
+		"position": var_to_str(Vector2i(global_position)),
+		"rotation": roundi(global_rotation_degrees),
 		"inventory" : inventory.get_save_data()
 	}
 
@@ -38,7 +38,7 @@ func load_save_data(data: Dictionary, load_from_save: bool):
 	if "position" in data and load_from_save:
 		global_position = str_to_var(data.position)
 	if "rotation" in data and load_from_save:
-		global_rotation = data.rotation
+		global_rotation_degrees = data.rotation
 	if "inventory" in data:
 		inventory.load_save_data(data.inventory)
 	

@@ -13,31 +13,25 @@ size = Vector2(62, 62)
 [node name="Player" parent="." instance=ExtResource("1_8e1jl")]
 position = Vector2(351, 255)
 
-[node name="Block" type="StaticBody2D" parent="."]
-position = Vector2(-82, 546)
-scale = Vector2(4.6582, 4.92471)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Block"]
-shape = SubResource("RectangleShape2D_j22h2")
-
-[node name="Sprite2D" type="Sprite2D" parent="Block"]
-self_modulate = Color(0, 0, 0, 1)
-texture = ExtResource("6_nwfn2")
-
-[node name="Block2" type="StaticBody2D" parent="."]
+[node name="Wall" type="StaticBody2D" parent="."]
 position = Vector2(1071, 100)
 scale = Vector2(0.32079, 6.33563)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Block2"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Wall"]
 shape = SubResource("RectangleShape2D_j22h2")
 
-[node name="Sprite2D" type="Sprite2D" parent="Block2"]
+[node name="Sprite2D" type="Sprite2D" parent="Wall"]
 self_modulate = Color(0, 0, 0, 1)
 texture = ExtResource("6_nwfn2")
 
 [node name="Sword" parent="." instance=ExtResource("3_glang")]
 position = Vector2(488, 407)
 rotation = -0.588839
+item_id = "sword"
+
+[node name="Sword3" parent="." instance=ExtResource("3_glang")]
+position = Vector2(1093, 176)
+rotation = -0.348993
 item_id = "sword"
 
 [node name="Sword2" parent="." instance=ExtResource("3_glang")]
@@ -75,3 +69,19 @@ E - pick up items
 Left Mouse - Drag and place items in inventory
 F1 - quick save
 F5 - quick load"
+
+[node name="Label2" type="Label" parent="."]
+offset_left = 1089.0
+offset_top = 54.0
+offset_right = 1241.0
+offset_bottom = 164.0
+text = "Note: can't pickup items through walls"
+autowrap_mode = 2
+
+[node name="Label3" type="Label" parent="."]
+offset_left = 611.0
+offset_top = 373.0
+offset_right = 819.0
+offset_bottom = 483.0
+text = "Note: glowing sword uses custom graphics"
+autowrap_mode = 2

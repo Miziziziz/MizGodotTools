@@ -101,10 +101,15 @@ func peek_item(cursor_pos: Vector2) -> ItemUI:
 func has_space_for_item(_item : ItemUI):
 	return true
 
+# check if cursor is over this container
 func is_hovering(cursor_pos: Vector2) -> bool:
 	if !is_active():
 		return false
 	return get_global_rect().has_point(cursor_pos)
+
+# can be overridden by inventory containers to have customer behaviour on hover
+func update_hover(_cursor_pos: Vector2):
+	pass
 
 func get_item_under_pos(cursor_pos: Vector2) -> ItemUI:
 	if !is_active():

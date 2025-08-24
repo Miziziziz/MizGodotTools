@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://bklpq6grmf8l4"]
+[gd_scene load_steps=4 format=3 uid="uid://bklpq6grmf8l4"]
 
 [ext_resource type="PackedScene" uid="uid://dfl36kpwn0r64" path="res://inventory/inventory_container.tscn" id="1_aqnrl"]
 [ext_resource type="Script" uid="uid://dnt34cg71fpbq" path="res://inventory/slot_inventory_container.gd" id="2_bcygj"]
+[ext_resource type="Texture2D" uid="uid://c7ng1ly7e5byb" path="res://effects/textures/white_circle_gradient_trans.png" id="3_m477d"]
 
 [node name="SlotInventoryContainer" instance=ExtResource("1_aqnrl")]
 offset_right = 116.0
@@ -32,3 +33,26 @@ offset_bottom = -5.0
 grow_horizontal = 2
 grow_vertical = 2
 color = Color(0.185981, 0.185981, 0.185981, 1)
+
+[node name="HoverGraphic" type="TextureRect" parent="." index="1"]
+self_modulate = Color(1, 1, 1, 0.109804)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_m477d")
+expand_mode = 1
+
+[node name="ItemSizeInSlotRef" type="Control" parent="." index="2"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 5.0
+offset_top = 5.0
+offset_right = -5.0
+offset_bottom = -5.0
+grow_horizontal = 2
+grow_vertical = 2

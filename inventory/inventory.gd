@@ -45,6 +45,9 @@ func _process(_delta: float) -> void:
 	var auto_interact_input = Input.is_action_just_pressed("auto_interact_inventory")
 	
 	var cursor_pos = get_cursor_pos()
+	for container in containers:
+		container.update_hover(cursor_pos)
+	
 	if drag_input and item_currently_dragging:
 		drag_item(cursor_pos)
 	elif grab_input:

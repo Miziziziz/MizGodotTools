@@ -19,6 +19,10 @@ var item_dynamic_data: ItemDynamicData
 var last_container_inside_of : InventoryContainer
 var position_when_grabbed : Vector2
 var base_size : Vector2
+
+const CUSTOM_BASE_SIZE = Vector2(80, 80)
+const USE_CUSTOM_BASE_SIZE = true # if set false it will use texture size
+
 var stack_display_textures = []
 
 func _ready():
@@ -50,8 +54,11 @@ func _ready():
 
 func update_size():
 	size = item_texture.texture.get_size()
-	custom_minimum_size = size
 	base_size = size
+	if USE_CUSTOM_BASE_SIZE:
+		size = CUSTOM_BASE_SIZE
+		base_size = CUSTOM_BASE_SIZE # size will get ignored in slot containers so need to set here
+	custom_minimum_size = size
 	item_texture.size = size
 	item_shadow.size = size
 	item_shadow_2.size = size

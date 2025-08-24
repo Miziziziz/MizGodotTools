@@ -1,18 +1,40 @@
-[gd_scene load_steps=3 format=3 uid="uid://d3id3ou8eqwo6"]
+[gd_scene load_steps=4 format=3 uid="uid://d3id3ou8eqwo6"]
 
 [ext_resource type="PackedScene" uid="uid://dfl36kpwn0r64" path="res://inventory/inventory_container.tscn" id="1_gennn"]
-[ext_resource type="Script" uid="uid://bo3irr0xka78q" path="res://inventory/InventoryContainer.gd" id="2_hy8oj"]
+[ext_resource type="Script" uid="uid://bo3irr0xka78q" path="res://inventory/grid_inventory_container.gd" id="2_hy8oj"]
+[ext_resource type="Script" uid="uid://haamjh2f50id" path="res://inventory/grid_debug_view.gd" id="3_i3op6"]
 
 [node name="GridInventoryContainer" instance=ExtResource("1_gennn")]
+offset_right = 302.0
+offset_bottom = 465.0
 script = ExtResource("2_hy8oj")
 num_of_columns = 5
 num_of_rows = 10
 
-[node name="GridContainer" type="GridContainer" parent="." index="1"]
+[node name="Panel" type="Panel" parent="." index="0"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+
+[node name="GridContainer" type="GridContainer" parent="." index="2"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/h_separation = 0
+theme_override_constants/v_separation = 0
 columns = 3
+
+[node name="GridDebugView" type="Control" parent="." index="3"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("3_i3op6")

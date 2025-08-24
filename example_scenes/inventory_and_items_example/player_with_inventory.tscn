@@ -42,30 +42,34 @@ instantly_turn = true
 
 [node name="Inventory" parent="UICanvasLayer" node_paths=PackedStringArray("container_to_pickup_to") instance=ExtResource("6_kw8fm")]
 unique_name_in_owner = true
-container_to_pickup_to = NodePath("Containers/LooseContainer")
+visible = false
+container_to_pickup_to = NodePath("Containers/GridInventoryContainer")
 
 [node name="InventoryDropItemsArea" parent="UICanvasLayer/Inventory/Containers" index="0" node_paths=PackedStringArray("item_world_drop_point")]
+offset_left = 476.0
+offset_top = 674.0
+offset_right = 876.0
+offset_bottom = 1074.0
 item_world_drop_point = NodePath("../../../..")
 
 [node name="LooseContainer" parent="UICanvasLayer/Inventory/Containers" index="1" instance=ExtResource("7_ofafn")]
-offset_left = 9.0
-offset_top = 191.0
-offset_right = 472.0
-offset_bottom = 776.0
+offset_left = 1010.0
+offset_top = 153.0
+offset_right = 1473.0
+offset_bottom = 738.0
 
 [node name="Label" type="Label" parent="UICanvasLayer/Inventory/Containers/LooseContainer"]
 layout_mode = 0
-offset_top = -70.0
+offset_top = -44.0
 offset_right = 360.0
 offset_bottom = -21.0
-text = "Loose Container
-(note: items use actual texture size in this one)"
+text = "Loose Container"
 
 [node name="SlotContainer" parent="UICanvasLayer/Inventory/Containers" index="2" instance=ExtResource("8_2p2xp")]
-offset_left = 783.0
-offset_top = 174.0
-offset_right = 920.0
-offset_bottom = 330.0
+offset_left = 582.0
+offset_top = 239.0
+offset_right = 719.0
+offset_bottom = 395.0
 restrict_to_item_type = "weapon"
 
 [node name="Label" type="Label" parent="UICanvasLayer/Inventory/Containers/SlotContainer"]
@@ -77,10 +81,10 @@ offset_bottom = -7.0
 text = "weapon slot"
 
 [node name="SlotContainer2" parent="UICanvasLayer/Inventory/Containers" index="3" instance=ExtResource("8_2p2xp")]
-offset_left = 788.0
-offset_top = 375.0
-offset_right = 925.0
-offset_bottom = 531.0
+offset_left = 587.0
+offset_top = 440.0
+offset_right = 724.0
+offset_bottom = 596.0
 restrict_to_item_type = "ammo"
 
 [node name="Label" type="Label" parent="UICanvasLayer/Inventory/Containers/SlotContainer2"]
@@ -92,10 +96,10 @@ offset_bottom = -7.0
 text = "ammo slot"
 
 [node name="GridInventoryContainer" parent="UICanvasLayer/Inventory/Containers" index="4" instance=ExtResource("9_2p2xp")]
-offset_left = 994.0
-offset_top = 61.0
-offset_right = 1489.0
-offset_bottom = 604.0
+offset_left = -40.0
+offset_top = 111.0
+offset_right = 347.0
+offset_bottom = 696.0
 
 [node name="Label" type="Label" parent="UICanvasLayer/Inventory/Containers/GridInventoryContainer"]
 layout_mode = 0
@@ -104,6 +108,22 @@ offset_top = -30.0
 offset_right = 42.0
 offset_bottom = -7.0
 text = "Grid Inventory container"
+
+[node name="GridInventoryContainer2" parent="UICanvasLayer/Inventory/Containers" index="5" instance=ExtResource("9_2p2xp")]
+offset_left = -40.0
+offset_top = 832.0
+offset_right = 449.0
+offset_bottom = 901.0
+num_of_columns = 7
+num_of_rows = 1
+
+[node name="Label" type="Label" parent="UICanvasLayer/Inventory/Containers/GridInventoryContainer2"]
+layout_mode = 0
+offset_left = 2.0
+offset_top = -30.0
+offset_right = 42.0
+offset_bottom = -7.0
+text = "Grid Inventory container as Hotbar"
 
 [node name="ItemNearbyInfo" type="Label" parent="UICanvasLayer"]
 visible = false

@@ -41,6 +41,10 @@ func peek_item(cursor_pos: Vector2) -> ItemUI:
 			return item
 	return null
 
+func update_hover(cursor_pos: Vector2):
+	for slot in slots:
+		slot.update_hover(cursor_pos)
+
 func get_item_under_pos(cursor_pos: Vector2) -> ItemUI:
 	for item in get_all_items():
 		if item.get_global_rect().has_point(cursor_pos):
@@ -56,7 +60,17 @@ func get_all_items() -> Array[ItemUI]:
 	return items
 
 func get_save_data():
-	return {} # TODO
+	var save_data = []
+	for slot : SlotInventoryContainer in slots:
+		save_data.append(slot.get_save_data())
+	return save_data
 
-func load_save_data(_container_data):
-	clear() # TODO
+func load_save_data(save_data):
+	clear()
+	var i = 0
+	for slot_data in save_data:
+		if i >= slots.size():
+			print_debug("ERROR, more saved data than number of slots ", get_path())
+			break
+		slots[i].load_save_data(slot_data)
+		i += 1

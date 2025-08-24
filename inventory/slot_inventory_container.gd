@@ -3,6 +3,19 @@ class_name SlotInventoryContainer extends InventoryContainer
 ## Carries exactly one item
 
 @export var restrict_to_item_type = "" # e.g. "weapon", "armor"
+@onready var hover_graphic: TextureRect = $HoverGraphic
+@onready var item_size_in_slot_ref: Control = $ItemSizeInSlotRef
+
+
+func _ready():
+	super()
+	draw.connect(on_draw)
+	hover_graphic.hide()
+
+func on_draw(): # for use with GridInventoryContainer, the GridContainer does not update size until it is drawn for the first time and needs to be manually updated here
+	if list_of_contained_items.is_empty():
+		return
+	list_of_contained_items[0].set_custom_size(item_size_in_slot_ref.size)
 
 func insert_item(item: ItemUI, force_insert = false) -> bool:
 	if !item_is_correct_type(item.item_id):
@@ -14,7 +27,7 @@ func insert_item(item: ItemUI, force_insert = false) -> bool:
 	if !list_of_contained_items.is_empty():
 		return false
 	
-	item.set_custom_size(size)
+	item.set_custom_size(item_size_in_slot_ref.size)
 	item.set_item_center_pos(global_position + size / 2.0)
 	super(item, force_insert)
 	return true
@@ -25,6 +38,15 @@ func has_space_for_item(item: ItemUI):
 	if !list_of_contained_items.is_empty():
 		return false
 	return true
+
+func update_hover(cursor_pos: Vector2):
+	if is_hovering(cursor_pos):
+		show_hover_graphic()
+
+func show_hover_graphic():
+	hover_graphic.show()
+	await get_tree().process_frame
+	hover_graphic.hide()
 
 func item_is_correct_type(item_id: String):
 	return restrict_to_item_type == "" or ItemDB.get_item_type(item_id) == restrict_to_item_type
@@ -40,5 +62,3 @@ func load_save_data(data: Dictionary):
 	if item:
 		items_base.add_child(item)
 		insert_item(item, true)
-		await get_tree().process_frame
-		item.set_custom_size(size)
