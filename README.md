@@ -12,6 +12,7 @@ Under MIT license so feel free to use in your own games.
 * 1 : environment
 * 2 : characters
 * 4 : hitboxes
+* 8 : items
 
 #### Globals
 * SaveManager
@@ -59,6 +60,12 @@ https://github.com/user-attachments/assets/9368e3bf-7ba1-46f9-ad18-015dae4bf0f2
 Settings Menu + Key rebinding + UI sfx: settings_example.tscn
 
 https://github.com/user-attachments/assets/b75e6d68-84a4-436b-8f1d-69521553e35b
+
+Inventory and Items System: inventory_and_items.tscn
+
+https://github.com/user-attachments/assets/2feef415-d108-4cc1-af02-be72c84af220
+
+
 
 
 
