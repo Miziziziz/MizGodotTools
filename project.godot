@@ -12,7 +12,7 @@ config_version=5
 
 config/name="MizGodotTools"
 run/main_scene="uid://cio1t5hcavphr"
-config/features=PackedStringArray("4.4", "Forward Plus")
+config/features=PackedStringArray("4.5", "Forward Plus")
 config/icon="uid://dxd3gtnetd2ay"
 
 [autoload]
@@ -20,6 +20,7 @@ config/icon="uid://dxd3gtnetd2ay"
 SaveManager="*res://save_manager/save_manager.gd"
 LevelManager="*res://level_manager/level_manager.tscn"
 FpsDisplay="*res://fps_display/fps_display.tscn"
+AchievementsManager="*res://achievements_manager/achievements_manager.gd"
 
 [display]
 

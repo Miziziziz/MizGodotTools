@@ -1,0 +1,80 @@
+[gd_scene load_steps=6 format=3 uid="uid://k1tngn7nb4av"]
+
+[ext_resource type="Script" uid="uid://dfglii1kki7pl" path="res://achievements_manager/single_achievement_display.gd" id="1_51ec3"]
+[ext_resource type="Texture2D" uid="uid://cvbk4ug7npk2h" path="res://achievements_manager/achievement_icons/test_achievement_1_not_completed.png" id="2_mb243"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5wkod"]
+bg_color = Color(0.181542, 0.181542, 0.181541, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(0.118581, 0.118581, 0.118581, 1)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+
+[sub_resource type="LabelSettings" id="LabelSettings_44kly"]
+font_size = 20
+
+[sub_resource type="LabelSettings" id="LabelSettings_3k7ts"]
+font_size = 14
+
+[node name="SingleAchievementDisplay" type="Panel"]
+custom_minimum_size = Vector2(0, 90)
+offset_right = 304.0
+offset_bottom = 90.0
+size_flags_horizontal = 3
+theme_override_styles/panel = SubResource("StyleBoxFlat_5wkod")
+script = ExtResource("1_51ec3")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 3.0
+offset_top = 5.0
+offset_right = -6.0
+offset_bottom = -6.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="AchTexture" type="TextureRect" parent="HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.5
+texture = ExtResource("2_mb243")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="TextDisplay" type="Control" parent="HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Title" type="Label" parent="HBoxContainer/TextDisplay"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_bottom = -51.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Title"
+label_settings = SubResource("LabelSettings_44kly")
+
+[node name="Description" type="Label" parent="HBoxContainer/TextDisplay"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 30.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Achievement description"
+label_settings = SubResource("LabelSettings_3k7ts")
+autowrap_mode = 2
