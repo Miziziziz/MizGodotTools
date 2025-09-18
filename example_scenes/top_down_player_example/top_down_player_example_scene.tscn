@@ -1,6 +1,7 @@
-[gd_scene load_steps=4 format=3 uid="uid://cm8pfjkajwgno"]
+[gd_scene load_steps=5 format=3 uid="uid://cm8pfjkajwgno"]
 
 [ext_resource type="PackedScene" uid="uid://cv3xqa7eu5hq2" path="res://example_scenes/top_down_player_example/top_down_player.tscn" id="1_8p6uh"]
+[ext_resource type="PackedScene" uid="uid://cqnokp4q87673" path="res://example_scenes/weapon_damage_and_blood_examples/rifle.tscn" id="3_veugp"]
 [ext_resource type="Texture2D" uid="uid://c6b5ihc5jnyoh" path="res://effects/textures/white_sq.png" id="5_3sbmu"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_17rgx"]
@@ -71,3 +72,20 @@ offset_bottom = -256.0
 text = "WASD or arrow keys movement + mouse look
 or 
 left joystick move right joystick turn"
+
+[node name="Label3" type="Label" parent="."]
+offset_left = -290.0
+offset_top = 372.0
+offset_right = 62.0
+offset_bottom = 447.0
+text = "walk in front to test hurt screen effects"
+
+[node name="Rifle" parent="." instance=ExtResource("3_veugp")]
+position = Vector2(-249, 311)
+rotation = -0.0106072
+
+[node name="Timer" type="Timer" parent="Rifle"]
+wait_time = 0.5
+autostart = true
+
+[connection signal="timeout" from="Rifle/Timer" to="Rifle" method="attack"]

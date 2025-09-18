@@ -1,12 +1,18 @@
-[gd_scene load_steps=6 format=3 uid="uid://cv3xqa7eu5hq2"]
+[gd_scene load_steps=10 format=3 uid="uid://cv3xqa7eu5hq2"]
 
 [ext_resource type="Script" uid="uid://dufdfer22yehx" path="res://example_scenes/top_down_player_example/top_down_player.gd" id="1_anvcl"]
 [ext_resource type="Texture2D" uid="uid://c485t74cvfska" path="res://effects/textures/white_circle.png" id="2_8i28y"]
 [ext_resource type="PackedScene" uid="uid://drgy5ywjdpjnl" path="res://characters_utility/top_down_character_mover/top_down_character_mover.tscn" id="3_s4iy0"]
 [ext_resource type="PackedScene" uid="uid://c2vvxd4ikbac6" path="res://input/top_down_input.tscn" id="4_dp1wd"]
+[ext_resource type="PackedScene" uid="uid://c5sy7c8ijp8k6" path="res://characters_utility/health_manager/health_manager.tscn" id="5_8i28y"]
+[ext_resource type="PackedScene" uid="uid://bb54najirf1ru" path="res://effects/hurt_heal_screen_effect/hurt_heal_screen_effect.tscn" id="6_s4iy0"]
+[ext_resource type="PackedScene" uid="uid://bvcafpqx7h01d" path="res://characters_utility/hit_box/hit_box.tscn" id="7_dp1wd"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_1titp"]
 radius = 32.1403
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ite8i"]
+radius = 31.1448
 
 [node name="Player" type="CharacterBody2D" groups=["player"]]
 collision_layer = 2
@@ -30,3 +36,17 @@ texture = ExtResource("2_8i28y")
 instantly_turn = true
 
 [node name="TopDownInput" parent="." instance=ExtResource("4_dp1wd")]
+
+[node name="HealthManager" parent="." instance=ExtResource("5_8i28y")]
+
+[node name="HitBox" parent="." instance=ExtResource("7_dp1wd")]
+
+[node name="CollisionShape2D" parent="HitBox" index="0"]
+shape = SubResource("CircleShape2D_ite8i")
+
+[node name="HurtHealScreenEffect" parent="." instance=ExtResource("6_s4iy0")]
+
+[connection signal="took_damage" from="HealthManager" to="HurtHealScreenEffect" method="play_hurt_effect"]
+[connection signal="hitbox_hurt" from="HitBox" to="HealthManager" method="hurt"]
+
+[editable path="HitBox"]
