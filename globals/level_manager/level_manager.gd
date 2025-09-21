@@ -2,6 +2,7 @@ extends Node
 
 ## Handles going in between levels and works with SaveManager to make changes persist
 ## Put paths to levels in your game in LEVEL_LIST
+## For a linear game with no backtracking set CLEAR_ENVIRONMENT_SAVE_DATA_ON_LEVEL_CHANGE to true
 
 var LEVEL_LIST = [
 	"res://example_scenes/level_transitions_examples/test_level_1.tscn",
@@ -10,6 +11,10 @@ var LEVEL_LIST = [
 ]
 
 var LEVEL_NAME_TO_LEVEL_PATH = {}
+
+# If true will wipe environment save data like dropped items and blood splatters on 
+# level change to save memory since they will never been seen again
+const CLEAR_ENVIRONMENT_SAVE_DATA_ON_LEVEL_CHANGE = false
 
 var loading_next_level = false
 @onready var loading_popup = $LoadingPopup
@@ -49,7 +54,9 @@ func load_level(level_name: String, connection_name: String, instant=false):
 		pass
 		#ScreenFader.set_black() #TODO
 	
-	var game_save_data = SaveManager.get_game_save_data()
+	var game_save_data : GameSaveData = SaveManager.get_game_save_data()
+	if CLEAR_ENVIRONMENT_SAVE_DATA_ON_LEVEL_CHANGE:
+		game_save_data.clear_environment_data()
 	var level_ind = get_level_ind_from_level_name(level_name)
 	var level_path = LEVEL_LIST[level_ind]
 	

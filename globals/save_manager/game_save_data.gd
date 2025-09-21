@@ -48,6 +48,10 @@ func save_data_to_file(file_path: String):
 	save_game.store_string(json_string)
 	#print("DATA STORED\n %s \n" % json_string)
 
+func clear_environment_data():
+	all_levels_data.clear()
+	# removes saved data for things like blood splatters and dropped items
+
 static func load_data_from_file(file_path: String) -> GameSaveData:
 	if !FileAccess.file_exists(file_path):
 		print("FILE NOT FOUND ", file_path)
