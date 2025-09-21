@@ -1,0 +1,110 @@
+[gd_scene load_steps=6 format=3 uid="uid://crstnxeki5ucu"]
+
+[ext_resource type="Script" uid="uid://soqu380j6y37" path="res://menus/pause_menu/pause_menu.gd" id="1_1yyas"]
+[ext_resource type="PackedScene" uid="uid://doxhfoom6rwew" path="res://menus/sub_menus/sub_menu.tscn" id="2_jwttc"]
+[ext_resource type="PackedScene" uid="uid://bmtqj1h3365pr" path="res://menus/sub_menus/load_game_menu/load_game_menu.tscn" id="3_4s7ec"]
+[ext_resource type="PackedScene" uid="uid://yjbhgaa0ptx4" path="res://menus/sub_menus/simple_settings_menu/simple_settings_menu.tscn" id="3_qd56w"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_x7c3f"]
+font_size = 48
+
+[node name="PauseMenu" type="Control"]
+process_mode = 3
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_1yyas")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.470588)
+
+[node name="Menus" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="IndexMenu" parent="Menus" instance=ExtResource("2_jwttc")]
+unique_name_in_owner = true
+layout_mode = 1
+
+[node name="BackButton" parent="Menus/IndexMenu" index="0"]
+visible = false
+
+[node name="Title" parent="Menus/IndexMenu" index="1"]
+offset_left = -94.5
+offset_top = -212.0
+offset_right = 94.5
+offset_bottom = -145.0
+text = "Paused"
+label_settings = SubResource("LabelSettings_x7c3f")
+horizontal_alignment = 1
+
+[node name="Panel" type="Panel" parent="Menus/IndexMenu"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -113.0
+offset_top = -95.0
+offset_right = 113.0
+offset_bottom = 95.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Menus/IndexMenu/Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="UnPauseButton" type="Button" parent="Menus/IndexMenu/Panel/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 3
+text = "Return to Game"
+
+[node name="LoadSaveButton" type="Button" parent="Menus/IndexMenu/Panel/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 3
+text = "Load Save"
+
+[node name="SettingsButton" type="Button" parent="Menus/IndexMenu/Panel/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 3
+text = "Settings"
+
+[node name="MainMenuButton" type="Button" parent="Menus/IndexMenu/Panel/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 3
+text = "Exit To Main Menu"
+
+[node name="LoadGameMenu" parent="Menus" instance=ExtResource("3_4s7ec")]
+unique_name_in_owner = true
+visible = false
+layout_mode = 1
+
+[node name="SettingsMenu" parent="Menus" instance=ExtResource("3_qd56w")]
+unique_name_in_owner = true
+visible = false
+layout_mode = 1
+
+[editable path="Menus/IndexMenu"]

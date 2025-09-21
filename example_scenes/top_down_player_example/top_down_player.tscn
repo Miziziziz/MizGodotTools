@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://cv3xqa7eu5hq2"]
+[gd_scene load_steps=12 format=3 uid="uid://cv3xqa7eu5hq2"]
 
 [ext_resource type="Script" uid="uid://dufdfer22yehx" path="res://example_scenes/top_down_player_example/top_down_player.gd" id="1_anvcl"]
 [ext_resource type="Texture2D" uid="uid://c485t74cvfska" path="res://effects/textures/white_circle.png" id="2_8i28y"]
@@ -7,6 +7,8 @@
 [ext_resource type="PackedScene" uid="uid://c5sy7c8ijp8k6" path="res://characters_utility/health_manager/health_manager.tscn" id="5_8i28y"]
 [ext_resource type="PackedScene" uid="uid://bb54najirf1ru" path="res://effects/hurt_heal_screen_effect/hurt_heal_screen_effect.tscn" id="6_s4iy0"]
 [ext_resource type="PackedScene" uid="uid://bvcafpqx7h01d" path="res://characters_utility/hit_box/hit_box.tscn" id="7_dp1wd"]
+[ext_resource type="PackedScene" uid="uid://crstnxeki5ucu" path="res://menus/pause_menu/pause_menu.tscn" id="8_ite8i"]
+[ext_resource type="PackedScene" uid="uid://dogflmftl1gnv" path="res://menus/death_menu/death_menu.tscn" id="9_stsqq"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_1titp"]
 radius = 32.1403
@@ -45,6 +47,13 @@ instantly_turn = true
 shape = SubResource("CircleShape2D_ite8i")
 
 [node name="HurtHealScreenEffect" parent="." instance=ExtResource("6_s4iy0")]
+
+[node name="Menus" type="CanvasLayer" parent="."]
+
+[node name="PauseMenu" parent="Menus" instance=ExtResource("8_ite8i")]
+visible = false
+
+[node name="DeathMenu" parent="Menus" instance=ExtResource("9_stsqq")]
 
 [connection signal="took_damage" from="HealthManager" to="HurtHealScreenEffect" method="play_hurt_effect"]
 [connection signal="hitbox_hurt" from="HitBox" to="HealthManager" method="hurt"]

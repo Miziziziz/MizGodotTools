@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://b5cnvtejwj67n" path="res://menus/sub_menus/sub_menu.gd" id="1_85u52"]
 
-[node name="Menu" type="Control"]
+[node name="SubMenu" type="Control"]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0

@@ -12,6 +12,9 @@ var LEVEL_LIST = [
 
 var LEVEL_NAME_TO_LEVEL_PATH = {}
 
+const MAIN_MENU_PATH = "res://menus/main_menu/main_menu.tscn"
+
+
 # If true will wipe environment save data like dropped items and blood splatters on 
 # level change to save memory since they will never been seen again
 const CLEAR_ENVIRONMENT_SAVE_DATA_ON_LEVEL_CHANGE = false
@@ -22,6 +25,11 @@ var loading_next_level = false
 func _ready():
 	for level_path in LEVEL_LIST:
 		LEVEL_NAME_TO_LEVEL_PATH[get_level_name_from_path(level_path)] = level_path
+
+func load_main_menu():
+	cancel_background_loading()
+	SaveManager.reset_current_game_save_data()
+	load_scene_from_path(MAIN_MENU_PATH)
 
 func start_new_game():
 	cancel_background_loading()
