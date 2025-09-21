@@ -1,8 +1,8 @@
-extends Menu
+extends SubMenu
 
 
 @onready var achievements_container = %AchievementsContainer
-const SINGLE_ACHIEVEMENT_DISPLAY = preload("res://menus/achievements_menu/single_achievement_display.tscn")
+const SINGLE_ACHIEVEMENT_DISPLAY = preload("res://menus/sub_menus/achievements_menu/single_achievement_display.tscn")
 
 func _ready() -> void:
 	for c in achievements_container.get_children():

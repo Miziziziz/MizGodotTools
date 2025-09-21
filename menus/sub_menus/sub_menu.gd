@@ -1,4 +1,4 @@
-class_name Menu extends Control
+class_name SubMenu extends Control
 
 @onready var back_button = $BackButton
 

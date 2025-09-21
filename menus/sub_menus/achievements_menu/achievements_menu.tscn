@@ -1,8 +1,8 @@
 [gd_scene load_steps=4 format=3 uid="uid://dyitte580taon"]
 
-[ext_resource type="Script" uid="uid://c03epcnu16wq4" path="res://menus/achievements_menu/achievements_menu.gd" id="1_jb48j"]
-[ext_resource type="PackedScene" uid="uid://doxhfoom6rwew" path="res://menus/menu.tscn" id="1_uvwqt"]
-[ext_resource type="PackedScene" uid="uid://k1tngn7nb4av" path="res://menus/achievements_menu/single_achievement_display.tscn" id="2_4x4j2"]
+[ext_resource type="Script" uid="uid://c03epcnu16wq4" path="res://menus/sub_menus/achievements_menu/achievements_menu.gd" id="1_jb48j"]
+[ext_resource type="PackedScene" uid="uid://doxhfoom6rwew" path="res://menus/sub_menus/sub_menu.tscn" id="1_uvwqt"]
+[ext_resource type="PackedScene" uid="uid://k1tngn7nb4av" path="res://menus/sub_menus/achievements_menu/single_achievement_display.tscn" id="2_4x4j2"]
 
 [node name="AchievementsMenu" instance=ExtResource("1_uvwqt")]
 script = ExtResource("1_jb48j")

@@ -1,4 +1,4 @@
-extends Menu
+extends SubMenu
 
 
 @onready var graphics_settings_menu: ScrollContainer = $TabContainer/Graphics

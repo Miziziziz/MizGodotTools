@@ -1,4 +1,4 @@
-extends Menu
+extends SubMenu
 
 @onready var buttons_container = %ButtonsContainer
 const LOAD_GAME_BUTTON_FORMAT = "{file_name} : {info}"

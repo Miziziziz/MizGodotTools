@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=3 uid="uid://k1tngn7nb4av"]
 
-[ext_resource type="Script" uid="uid://dfglii1kki7pl" path="res://menus/achievements_menu/single_achievement_display.gd" id="1_51ec3"]
+[ext_resource type="Script" uid="uid://dfglii1kki7pl" path="res://menus/sub_menus/achievements_menu/single_achievement_display.gd" id="1_51ec3"]
 [ext_resource type="Texture2D" uid="uid://cvbk4ug7npk2h" path="res://globals/achievements_manager/achievement_icons/test_achievement_1_not_completed.png" id="2_mb243"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5wkod"]

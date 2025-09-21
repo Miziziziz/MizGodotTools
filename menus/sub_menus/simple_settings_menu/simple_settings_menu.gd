@@ -1,4 +1,4 @@
-extends Menu
+extends SubMenu
 
 ## simplified settings menu for games with fewer options
 

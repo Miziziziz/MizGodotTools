@@ -20,7 +20,7 @@ extends Control
 
 
 func _ready():
-	for menu : Menu in menus:
+	for menu : SubMenu in menus:
 		menu.back_button.button_up.connect(switch_to_menu_screen.bind(index_menu))
 	
 	settings_button.button_up.connect(switch_to_menu_screen.bind(settings_menu))
@@ -49,7 +49,7 @@ func open_making_of():
 func exit_game():
 	get_tree().quit()
 
-func switch_to_menu_screen(menu_to_switch_to : Menu):
+func switch_to_menu_screen(menu_to_switch_to : SubMenu):
 	for menu in menus:
 		menu.hide()
 	menu_to_switch_to.switch_to_this_menu()

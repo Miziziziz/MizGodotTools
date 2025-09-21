@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://bmtqj1h3365pr"]
 
-[ext_resource type="PackedScene" uid="uid://doxhfoom6rwew" path="res://menus/menu.tscn" id="1_4a2ya"]
-[ext_resource type="Script" uid="uid://comaay6okr1r" path="res://menus/load_game_menu/load_game_menu.gd" id="2_lgllj"]
+[ext_resource type="PackedScene" uid="uid://doxhfoom6rwew" path="res://menus/sub_menus/sub_menu.tscn" id="1_4a2ya"]
+[ext_resource type="Script" uid="uid://comaay6okr1r" path="res://menus/sub_menus/load_game_menu/load_game_menu.gd" id="2_lgllj"]
 
 [node name="LoadGameMenu" instance=ExtResource("1_4a2ya")]
 script = ExtResource("2_lgllj")

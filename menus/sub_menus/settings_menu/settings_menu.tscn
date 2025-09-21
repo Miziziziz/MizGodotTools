@@ -1,13 +1,13 @@
 [gd_scene load_steps=9 format=3 uid="uid://dml38u48toeow"]
 
-[ext_resource type="PackedScene" uid="uid://doxhfoom6rwew" path="res://menus/menu.tscn" id="1_83qjl"]
-[ext_resource type="Script" uid="uid://b3xv3uc1h88yu" path="res://menus/settings_menu/settings_menu.gd" id="2_umxaj"]
-[ext_resource type="Script" uid="uid://dsc5xjeg5wfhx" path="res://menus/settings_menu/graphics_settings_menu.gd" id="3_t8ni5"]
-[ext_resource type="Script" uid="uid://d3qfvx2bfsgwl" path="res://menus/settings_menu/restricted_char_line_edit.gd" id="4_74jo7"]
-[ext_resource type="Script" uid="uid://dcxyjhowt3l8c" path="res://menus/settings_menu/audio_settings_menu.gd" id="5_tsjxj"]
-[ext_resource type="Script" uid="uid://gfenp7xcjyi7" path="res://menus/settings_menu/gameplay_settings_menu.gd" id="6_sf0uk"]
-[ext_resource type="Script" uid="uid://bgdu8j6c5hk45" path="res://menus/settings_menu/controls_settings_menu.gd" id="7_f0p5g"]
-[ext_resource type="Script" uid="uid://cynxg2j521gka" path="res://menus/settings_menu/confirm_resolution_change_popup.gd" id="8_fqnsi"]
+[ext_resource type="PackedScene" uid="uid://doxhfoom6rwew" path="res://menus/sub_menus/sub_menu.tscn" id="1_83qjl"]
+[ext_resource type="Script" uid="uid://b3xv3uc1h88yu" path="res://menus/sub_menus/settings_menu/settings_menu.gd" id="2_umxaj"]
+[ext_resource type="Script" uid="uid://dsc5xjeg5wfhx" path="res://menus/sub_menus/settings_menu/graphics_settings_menu.gd" id="3_t8ni5"]
+[ext_resource type="Script" uid="uid://d3qfvx2bfsgwl" path="res://menus/sub_menus/settings_menu/restricted_char_line_edit.gd" id="4_74jo7"]
+[ext_resource type="Script" uid="uid://dcxyjhowt3l8c" path="res://menus/sub_menus/settings_menu/audio_settings_menu.gd" id="5_tsjxj"]
+[ext_resource type="Script" uid="uid://gfenp7xcjyi7" path="res://menus/sub_menus/settings_menu/gameplay_settings_menu.gd" id="6_sf0uk"]
+[ext_resource type="Script" uid="uid://bgdu8j6c5hk45" path="res://menus/sub_menus/settings_menu/controls_settings_menu.gd" id="7_f0p5g"]
+[ext_resource type="Script" uid="uid://cynxg2j521gka" path="res://menus/sub_menus/settings_menu/confirm_resolution_change_popup.gd" id="8_fqnsi"]
 
 [node name="SettingsMenu" groups=["settings_menu"] instance=ExtResource("1_83qjl")]
 script = ExtResource("2_umxaj")

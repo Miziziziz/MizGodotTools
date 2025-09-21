@@ -1,11 +1,11 @@
 [gd_scene load_steps=8 format=3 uid="uid://5s7t68agfkb2"]
 
 [ext_resource type="Script" uid="uid://dvajwct83mit2" path="res://menus/main_menu/main_menu.gd" id="1_oic2i"]
-[ext_resource type="PackedScene" uid="uid://doxhfoom6rwew" path="res://menus/menu.tscn" id="1_xbn2l"]
-[ext_resource type="PackedScene" uid="uid://dyitte580taon" path="res://menus/achievements_menu/achievements_menu.tscn" id="2_ml8bw"]
-[ext_resource type="PackedScene" uid="uid://yjbhgaa0ptx4" path="res://menus/simple_settings_menu/simple_settings_menu.tscn" id="3_oic2i"]
-[ext_resource type="PackedScene" uid="uid://xt67inn1itc" path="res://menus/credits_menu.tscn" id="4_er5qh"]
-[ext_resource type="PackedScene" uid="uid://bmtqj1h3365pr" path="res://menus/load_game_menu/load_game_menu.tscn" id="6_er5qh"]
+[ext_resource type="PackedScene" uid="uid://doxhfoom6rwew" path="res://menus/sub_menus/sub_menu.tscn" id="1_xbn2l"]
+[ext_resource type="PackedScene" uid="uid://dyitte580taon" path="res://menus/sub_menus/achievements_menu/achievements_menu.tscn" id="2_ml8bw"]
+[ext_resource type="PackedScene" uid="uid://yjbhgaa0ptx4" path="res://menus/sub_menus/simple_settings_menu/simple_settings_menu.tscn" id="3_oic2i"]
+[ext_resource type="PackedScene" uid="uid://xt67inn1itc" path="res://menus/sub_menus/credits_menu.tscn" id="4_er5qh"]
+[ext_resource type="PackedScene" uid="uid://bmtqj1h3365pr" path="res://menus/sub_menus/load_game_menu/load_game_menu.tscn" id="6_er5qh"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_1nwmw"]
 font_size = 52

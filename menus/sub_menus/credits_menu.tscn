@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://xt67inn1itc"]
 
-[ext_resource type="PackedScene" uid="uid://doxhfoom6rwew" path="res://menus/menu.tscn" id="1_vbcsv"]
+[ext_resource type="PackedScene" uid="uid://doxhfoom6rwew" path="res://menus/sub_menus/sub_menu.tscn" id="1_vbcsv"]
 
 [node name="CreditsMenu" instance=ExtResource("1_vbcsv")]
 
