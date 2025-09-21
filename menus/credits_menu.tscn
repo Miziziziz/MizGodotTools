@@ -1,0 +1,66 @@
+[gd_scene load_steps=2 format=3 uid="uid://xt67inn1itc"]
+
+[ext_resource type="PackedScene" uid="uid://doxhfoom6rwew" path="res://menus/menu.tscn" id="1_vbcsv"]
+
+[node name="CreditsMenu" instance=ExtResource("1_vbcsv")]
+
+[node name="BackButton" parent="." index="0"]
+offset_left = -32.0
+offset_right = 24.0
+offset_bottom = -225.0
+
+[node name="Title" parent="." index="1"]
+offset_left = -227.0
+offset_top = -252.5
+offset_right = -38.0
+offset_bottom = -227.5
+text = "Credits"
+
+[node name="Panel" type="Panel" parent="." index="2"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -239.75
+offset_top = -206.0
+offset_right = 239.75
+offset_bottom = 206.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ScrollContainer" type="ScrollContainer" parent="Panel" index="0"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 16.293701
+offset_top = 14.0
+offset_right = -16.293701
+offset_bottom = -14.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="Panel/ScrollContainer" index="0"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+text = "Created by
+
+Art by
+
+Music by
+
+Writing by
+
+misc credit references:
+e.g. dirt texture from
+footstep sound from
+
+etc
+etc
+etc
+etc
+"
+autowrap_mode = 2

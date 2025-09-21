@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://bpjubo2upmgyf"]
 
 [ext_resource type="Script" uid="uid://dieacsag107tc" path="res://example_scenes/settings_and_ui_sounds_example/settings_example.gd" id="1_vs3r8"]
-[ext_resource type="PackedScene" uid="uid://cpe4coxgldw1n" path="res://settings_menu/settings_menu.tscn" id="1_wm8g1"]
+[ext_resource type="PackedScene" uid="uid://cpe4coxgldw1n" path="res://menus/settings_menu/settings_menu_old.tscn" id="1_wm8g1"]
 [ext_resource type="PackedScene" uid="uid://djm0nm8f8ktos" path="res://sfx_utility/ui_sound_manager/ui_sound_player.tscn" id="3_jbgun"]
 
 [node name="SettingsExample" type="Control"]

@@ -1,0 +1,53 @@
+[gd_scene load_steps=3 format=3 uid="uid://bmtqj1h3365pr"]
+
+[ext_resource type="PackedScene" uid="uid://doxhfoom6rwew" path="res://menus/menu.tscn" id="1_4a2ya"]
+[ext_resource type="Script" uid="uid://comaay6okr1r" path="res://menus/load_game_menu/load_game_menu.gd" id="2_lgllj"]
+
+[node name="LoadGameMenu" instance=ExtResource("1_4a2ya")]
+script = ExtResource("2_lgllj")
+
+[node name="Title" parent="." index="1"]
+text = "Load Saved Game"
+
+[node name="Panel" type="Panel" parent="." index="2"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -362.0
+offset_top = -213.0
+offset_right = 362.0
+offset_bottom = 213.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ScrollContainer" type="ScrollContainer" parent="Panel" index="0"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 15.0
+offset_top = 11.0
+offset_right = -15.0
+offset_bottom = -11.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ButtonsContainer" type="VBoxContainer" parent="Panel/ScrollContainer" index="0"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Button" type="Button" parent="Panel/ScrollContainer/ButtonsContainer" index="0"]
+layout_mode = 2
+text = "Save 1"
+
+[node name="Button2" type="Button" parent="Panel/ScrollContainer/ButtonsContainer" index="1"]
+layout_mode = 2
+text = "Save 2"
+
+[node name="Button3" type="Button" parent="Panel/ScrollContainer/ButtonsContainer" index="2"]
+layout_mode = 2
+text = "Save 3"

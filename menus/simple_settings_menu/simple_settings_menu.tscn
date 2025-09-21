@@ -1,0 +1,164 @@
+[gd_scene load_steps=3 format=3 uid="uid://yjbhgaa0ptx4"]
+
+[ext_resource type="PackedScene" uid="uid://doxhfoom6rwew" path="res://menus/menu.tscn" id="1_iavkp"]
+[ext_resource type="Script" uid="uid://2671moh0oajj" path="res://menus/simple_settings_menu/simple_settings_menu.gd" id="2_owx7y"]
+
+[node name="SettingsMenu" instance=ExtResource("1_iavkp")]
+script = ExtResource("2_owx7y")
+
+[node name="Panel" type="Panel" parent="." index="2"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -304.0
+offset_top = -207.0
+offset_right = 304.0
+offset_bottom = 207.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel" index="0"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+
+[node name="Buffer" type="Control" parent="Panel/VBoxContainer" index="0"]
+custom_minimum_size = Vector2(0, 28)
+layout_mode = 2
+
+[node name="Fullscreen" type="HBoxContainer" parent="Panel/VBoxContainer" index="1"]
+custom_minimum_size = Vector2(0, 28)
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Panel/VBoxContainer/Fullscreen" index="0"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Fullscreen:"
+horizontal_alignment = 2
+
+[node name="CheckBox" type="CheckBox" parent="Panel/VBoxContainer/Fullscreen" index="1"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Control" type="Control" parent="Panel/VBoxContainer/Fullscreen" index="2"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.1
+
+[node name="Vsync" type="HBoxContainer" parent="Panel/VBoxContainer" index="2"]
+custom_minimum_size = Vector2(0, 28)
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Panel/VBoxContainer/Vsync" index="0"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Vsync:"
+horizontal_alignment = 2
+
+[node name="CheckBox" type="CheckBox" parent="Panel/VBoxContainer/Vsync" index="1"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Control" type="Control" parent="Panel/VBoxContainer/Vsync" index="2"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.1
+
+[node name="FpsDisplay" type="HBoxContainer" parent="Panel/VBoxContainer" index="3"]
+custom_minimum_size = Vector2(0, 28)
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Panel/VBoxContainer/FpsDisplay" index="0"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Fps Display:"
+horizontal_alignment = 2
+
+[node name="CheckBox" type="CheckBox" parent="Panel/VBoxContainer/FpsDisplay" index="1"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Control" type="Control" parent="Panel/VBoxContainer/FpsDisplay" index="2"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.1
+
+[node name="Buffer2" type="Control" parent="Panel/VBoxContainer" index="4"]
+custom_minimum_size = Vector2(0, 28)
+layout_mode = 2
+
+[node name="MasterVolume" type="HBoxContainer" parent="Panel/VBoxContainer" index="5"]
+custom_minimum_size = Vector2(0, 28)
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Panel/VBoxContainer/MasterVolume" index="0"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Master Volume:"
+horizontal_alignment = 2
+
+[node name="HSlider" type="HSlider" parent="Panel/VBoxContainer/MasterVolume" index="1"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+max_value = 1.0
+step = 0.05
+value = 1.0
+
+[node name="Control" type="Control" parent="Panel/VBoxContainer/MasterVolume" index="2"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.1
+
+[node name="MusicVolume" type="HBoxContainer" parent="Panel/VBoxContainer" index="6"]
+custom_minimum_size = Vector2(0, 28)
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Panel/VBoxContainer/MusicVolume" index="0"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Music Volume:"
+horizontal_alignment = 2
+
+[node name="HSlider" type="HSlider" parent="Panel/VBoxContainer/MusicVolume" index="1"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+max_value = 1.0
+step = 0.05
+value = 1.0
+
+[node name="Control" type="Control" parent="Panel/VBoxContainer/MusicVolume" index="2"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.1
+
+[node name="SFXVolume" type="HBoxContainer" parent="Panel/VBoxContainer" index="7"]
+custom_minimum_size = Vector2(0, 28)
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Panel/VBoxContainer/SFXVolume" index="0"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Sfx Volume:"
+horizontal_alignment = 2
+
+[node name="HSlider" type="HSlider" parent="Panel/VBoxContainer/SFXVolume" index="1"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+max_value = 1.0
+step = 0.05
+value = 1.0
+
+[node name="Control" type="Control" parent="Panel/VBoxContainer/SFXVolume" index="2"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.1

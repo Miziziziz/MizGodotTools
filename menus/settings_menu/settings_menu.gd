@@ -1,11 +1,11 @@
-extends Control
+extends Menu
+
 
 @onready var graphics_settings_menu: ScrollContainer = $TabContainer/Graphics
 @onready var audio_settings_menu: ScrollContainer = $TabContainer/Audio
 @onready var gameplay_settings_menu: ScrollContainer = $TabContainer/Gameplay
 @onready var controls_settings_menu: ScrollContainer = $TabContainer/Controls
 
-@onready var back_button: Button = $BackButton
 
 const SETTINGS_SAVE_FILE := "user://settings.save"
 

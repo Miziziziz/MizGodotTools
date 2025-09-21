@@ -16,10 +16,11 @@ var verbose = false
 var game_loading = false
 
 const SAVE_FILE_DIRECTORY =  "user://saved_games/"
-const SAVE_FILE_PATH_FORMAT = SAVE_FILE_DIRECTORY + "%s.save"
+const SAVE_FILE_SUFFIX = ".save"
+const SAVE_FILE_PATH_FORMAT = SAVE_FILE_DIRECTORY + "%s" + SAVE_FILE_SUFFIX
 const AUTOSAVE_PATH = SAVE_FILE_PATH_FORMAT % "autosave"
 const QUICKSAVE_PATH = SAVE_FILE_PATH_FORMAT % "quicksave"
-const LAST_SAVED_FILE = "user://last_played.save"
+const LAST_SAVED_FILE = "user://last_played" + SAVE_FILE_SUFFIX
 
 signal game_saved(save_file_path: String)
 signal game_load_complete
@@ -104,6 +105,21 @@ func get_last_saved_file_path() -> String:
 	if not FileAccess.file_exists(save_path):
 		return ""
 	return save_path
+
+func get_all_saved_game_file_paths() -> Array[String]:
+	var save_file_paths : Array[String]
+	var dir = DirAccess.open(SAVE_FILE_DIRECTORY)
+	if dir:
+		dir.list_dir_begin()
+		var file_name = dir.get_next()
+		while file_name != "":
+			if file_name.ends_with(SAVE_FILE_SUFFIX) and !dir.current_is_dir():
+				file_name = file_name.trim_suffix(SAVE_FILE_SUFFIX) # easier to put in format on next line
+				save_file_paths.append(SAVE_FILE_PATH_FORMAT % file_name)
+			file_name = dir.get_next()
+	save_file_paths.sort_custom(sort_by_date_modified)
+	return save_file_paths
+
 
 func sort_by_date_modified(file_path_a: String, file_path_b: String):
 	var file_a_time = FileAccess.get_modified_time(file_path_a)

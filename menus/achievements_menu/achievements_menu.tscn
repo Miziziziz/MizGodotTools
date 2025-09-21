@@ -1,0 +1,54 @@
+[gd_scene load_steps=4 format=3 uid="uid://dyitte580taon"]
+
+[ext_resource type="Script" uid="uid://c03epcnu16wq4" path="res://menus/achievements_menu/achievements_menu.gd" id="1_jb48j"]
+[ext_resource type="PackedScene" uid="uid://doxhfoom6rwew" path="res://menus/menu.tscn" id="1_uvwqt"]
+[ext_resource type="PackedScene" uid="uid://k1tngn7nb4av" path="res://achievements_manager/single_achievement_display.tscn" id="2_4x4j2"]
+
+[node name="AchievementsMenu" instance=ExtResource("1_uvwqt")]
+script = ExtResource("1_jb48j")
+
+[node name="Title" parent="." index="1"]
+text = "Achievements"
+
+[node name="Panel" type="Panel" parent="." index="2"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -174.0
+offset_top = -215.0
+offset_right = 174.0
+offset_bottom = 215.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ScrollContainer" type="ScrollContainer" parent="Panel" index="0"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="AchievementsContainer" type="VBoxContainer" parent="Panel/ScrollContainer" index="0"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="SingleAchievementDisplay" parent="Panel/ScrollContainer/AchievementsContainer" index="0" instance=ExtResource("2_4x4j2")]
+layout_mode = 2
+
+[node name="SingleAchievementDisplay2" parent="Panel/ScrollContainer/AchievementsContainer" index="1" instance=ExtResource("2_4x4j2")]
+layout_mode = 2
+
+[node name="SingleAchievementDisplay3" parent="Panel/ScrollContainer/AchievementsContainer" index="2" instance=ExtResource("2_4x4j2")]
+layout_mode = 2
+
+[node name="SingleAchievementDisplay4" parent="Panel/ScrollContainer/AchievementsContainer" index="3" instance=ExtResource("2_4x4j2")]
+layout_mode = 2
+
+[node name="SingleAchievementDisplay5" parent="Panel/ScrollContainer/AchievementsContainer" index="4" instance=ExtResource("2_4x4j2")]
+layout_mode = 2

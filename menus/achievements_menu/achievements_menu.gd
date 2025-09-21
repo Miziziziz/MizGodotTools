@@ -1,4 +1,4 @@
-extends Control
+extends Menu
 
 
 const SINGLE_ACHIEVEMENT_DISPLAY = preload("res://achievements_manager/single_achievement_display.tscn")
