@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=3 uid="uid://c4ycy2simb58u"]
 
-[ext_resource type="PackedScene" uid="uid://bwlc8jfb07c6o" path="res://weapons/weapon.tscn" id="1_es75o"]
-[ext_resource type="Script" uid="uid://b643lfrphks66" path="res://weapons/gun.gd" id="2_tsf64"]
+[ext_resource type="PackedScene" uid="uid://bwlc8jfb07c6o" path="res://items/weapons/weapon.tscn" id="1_es75o"]
+[ext_resource type="Script" uid="uid://b643lfrphks66" path="res://items/weapons/gun.gd" id="2_tsf64"]
 [ext_resource type="PackedScene" uid="uid://dibf13el8g4ey" path="res://effects/muzzle_smoke/muzzle_smoke.tscn" id="3_tan0m"]
 [ext_resource type="PackedScene" uid="uid://bupegaj1lmxhy" path="res://effects/muzzle_flash/muzzle_flash.tscn" id="4_7d7d4"]
 

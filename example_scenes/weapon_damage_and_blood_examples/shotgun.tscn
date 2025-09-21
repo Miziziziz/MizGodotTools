@@ -1,8 +1,8 @@
 [gd_scene load_steps=5 format=3 uid="uid://b1r8xo868sopf"]
 
-[ext_resource type="PackedScene" uid="uid://c4ycy2simb58u" path="res://weapons/gun.tscn" id="1_7m31h"]
-[ext_resource type="PackedScene" uid="uid://bssoj3cdymt1b" path="res://weapons/attack_emitters/arc_emitter.tscn" id="2_eam4t"]
-[ext_resource type="PackedScene" uid="uid://bblf0xfbms5ag" path="res://weapons/attack_emitters/raycast_bullet_emitter.tscn" id="3_ewf1g"]
+[ext_resource type="PackedScene" uid="uid://c4ycy2simb58u" path="res://items/weapons/gun.tscn" id="1_7m31h"]
+[ext_resource type="PackedScene" uid="uid://bssoj3cdymt1b" path="res://items/weapons/attack_emitters/arc_emitter.tscn" id="2_eam4t"]
+[ext_resource type="PackedScene" uid="uid://bblf0xfbms5ag" path="res://items/weapons/attack_emitters/raycast_bullet_emitter.tscn" id="3_ewf1g"]
 [ext_resource type="Texture2D" uid="uid://c6b5ihc5jnyoh" path="res://effects/textures/white_sq.png" id="4_ewf1g"]
 
 [node name="Shotgun" instance=ExtResource("1_7m31h")]

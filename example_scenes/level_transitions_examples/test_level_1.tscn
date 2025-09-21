@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=4 uid="uid://b7078ccdpuvwr"]
 
-[ext_resource type="PackedScene" uid="uid://c1ojw03pvbsu7" path="res://level_manager/level_connections/level_connection.tscn" id="1_r5t5o"]
+[ext_resource type="PackedScene" uid="uid://c1ojw03pvbsu7" path="res://globals/level_manager/level_connections/level_connection.tscn" id="1_r5t5o"]
 [ext_resource type="PackedScene" uid="uid://cvgkea2olanl1" path="res://example_scenes/level_transitions_examples/base_level_template.tscn" id="1_soqte"]
 
 [node name="TestLevel1" instance=ExtResource("1_soqte")]

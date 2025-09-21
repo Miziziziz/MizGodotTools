@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://dvp18ef4w5ng2"]
 
-[ext_resource type="Script" uid="uid://coj74uno306v1" path="res://weapons/attack_emitters/attack_emitter.gd" id="1_ityt5"]
+[ext_resource type="Script" uid="uid://coj74uno306v1" path="res://items/weapons/attack_emitters/attack_emitter.gd" id="1_ityt5"]
 
 [node name="AttackEmitter" type="Node2D"]
 script = ExtResource("1_ityt5")

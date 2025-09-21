@@ -9,8 +9,8 @@ extends Node
 ## achievement_id_not_completed.png
 
 
-const ACH_IMG_PATH = "res://achievements_manager/achievement_icons/"
-const SECRET_IMG_PATH = "res://achievements_manager/achievement_icons/secret_ach_icon.png"
+const ACH_IMG_PATH = "res://globals/achievements_manager/achievement_icons/"
+const SECRET_IMG_PATH = "res://globals/achievements_manager/achievement_icons/secret_ach_icon.png"
 
 const SECRET_ACH_TITLE = "Secret Achievement"
 const SECRET_ACH_DESC = "This is a secret achievement"

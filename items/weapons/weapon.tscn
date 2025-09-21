@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://bwlc8jfb07c6o"]
 
-[ext_resource type="Script" uid="uid://dmvjsll7dwvf4" path="res://weapons/weapon.gd" id="1_pxh0k"]
-[ext_resource type="PackedScene" uid="uid://dvp18ef4w5ng2" path="res://weapons/attack_emitters/attack_emitter.tscn" id="1_rma5x"]
+[ext_resource type="Script" uid="uid://dmvjsll7dwvf4" path="res://items/weapons/weapon.gd" id="1_pxh0k"]
+[ext_resource type="PackedScene" uid="uid://dvp18ef4w5ng2" path="res://items/weapons/attack_emitters/attack_emitter.tscn" id="1_rma5x"]
 
 [node name="Weapon" type="Node2D"]
 script = ExtResource("1_pxh0k")

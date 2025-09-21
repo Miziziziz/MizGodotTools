@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://c1ojw03pvbsu7"]
 
-[ext_resource type="Script" uid="uid://crdmvnrv4108x" path="res://level_manager/level_connections/level_connection.gd" id="1_xisaa"]
+[ext_resource type="Script" uid="uid://crdmvnrv4108x" path="res://globals/level_manager/level_connections/level_connection.gd" id="1_xisaa"]
 [ext_resource type="Texture2D" uid="uid://c6b5ihc5jnyoh" path="res://effects/textures/white_sq.png" id="2_c7yjb"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_b85ll"]

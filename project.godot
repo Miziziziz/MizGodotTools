@@ -17,10 +17,10 @@ config/icon="uid://dxd3gtnetd2ay"
 
 [autoload]
 
-SaveManager="*res://save_manager/save_manager.gd"
-LevelManager="*res://level_manager/level_manager.tscn"
-FpsDisplay="*res://fps_display/fps_display.tscn"
-AchievementsManager="*res://achievements_manager/achievements_manager.gd"
+SaveManager="*res://globals/save_manager/save_manager.gd"
+LevelManager="*res://globals/level_manager/level_manager.tscn"
+FpsDisplay="*res://globals/fps_display/fps_display.tscn"
+AchievementsManager="*res://globals/achievements_manager/achievements_manager.gd"
 
 [display]
 

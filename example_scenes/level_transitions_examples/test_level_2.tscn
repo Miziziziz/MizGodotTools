@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=4 uid="uid://bg04hwq321ig0"]
 
 [ext_resource type="PackedScene" uid="uid://cvgkea2olanl1" path="res://example_scenes/level_transitions_examples/base_level_template.tscn" id="1_soqte"]
-[ext_resource type="PackedScene" uid="uid://c1ojw03pvbsu7" path="res://level_manager/level_connections/level_connection.tscn" id="2_r356s"]
+[ext_resource type="PackedScene" uid="uid://c1ojw03pvbsu7" path="res://globals/level_manager/level_connections/level_connection.tscn" id="2_r356s"]
 [ext_resource type="PackedScene" uid="uid://cqnokp4q87673" path="res://example_scenes/weapon_damage_and_blood_examples/rifle.tscn" id="3_pp247"]
 [ext_resource type="PackedScene" uid="uid://glvxl7coltw8" path="res://example_scenes/weapon_damage_and_blood_examples/test_dummy.tscn" id="4_vr0xl"]
 

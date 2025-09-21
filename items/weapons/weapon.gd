@@ -1,6 +1,8 @@
 class_name Weapon extends Node
 
 ## Weapon base class, any weapons should be an inherited scene from Weapon.tscn
+## this implementation does not count as an Item (ItemWorld or ItemUI) and is
+## intented to be attached directly to the player
 
 @onready var attack_emitter : AttackEmitter = $AttackEmitter
 @export var damage = 1

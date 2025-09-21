@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ktp8kx4vsv33"
-path="res://.godot/imported/test_achievement_2_completed.png-c3d12c7818153857b558f093a9c80512.ctex"
+uid="uid://cmxwojv3fu613"
+path="res://.godot/imported/test_achievement_2_not_completed.png-6a6e45b83e1b0afc38c9f58c6c4bb6ce.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://achievements_manager/achievement_icons/test_achievement_2_completed.png"
-dest_files=["res://.godot/imported/test_achievement_2_completed.png-c3d12c7818153857b558f093a9c80512.ctex"]
+source_file="res://globals/achievements_manager/achievement_icons/test_achievement_2_not_completed.png"
+dest_files=["res://.godot/imported/test_achievement_2_not_completed.png-6a6e45b83e1b0afc38c9f58c6c4bb6ce.ctex"]
 
 [params]
 

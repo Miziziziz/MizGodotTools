@@ -1,9 +1,0 @@
-[gd_scene load_steps=3 format=3 uid="uid://bssoj3cdymt1b"]
-
-[ext_resource type="PackedScene" uid="uid://dvp18ef4w5ng2" path="res://weapons/attack_emitters/attack_emitter.tscn" id="1_jke6t"]
-[ext_resource type="Script" uid="uid://5bxefxn1qujq" path="res://weapons/attack_emitters/arc_emitter.gd" id="2_486kx"]
-
-[node name="ArcEmitter" instance=ExtResource("1_jke6t")]
-script = ExtResource("2_486kx")
-arc = 30.0
-shots_to_fire = 5
