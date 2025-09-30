@@ -41,7 +41,7 @@ func toggle_pause_menu():
 	get_tree().paused = p
 	visible = p
 	if p:
-		un_pause_button.grab_focus()
+		switch_to_menu_screen(index_menu)
 
 func switch_to_menu_screen(menu_to_switch_to : SubMenu):
 	for menu in menus:
