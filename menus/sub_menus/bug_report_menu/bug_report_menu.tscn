@@ -1,0 +1,78 @@
+[gd_scene format=3 uid="uid://dfj5hfgalq035"]
+
+[ext_resource type="PackedScene" uid="uid://doxhfoom6rwew" path="res://menus/sub_menus/sub_menu.tscn" id="1_je4wl"]
+[ext_resource type="Script" uid="uid://c03b1fd4bats4" path="res://menus/sub_menus/bug_report_menu/bug_report_menu.gd" id="2_1ysgs"]
+
+[node name="BugReportMenu" unique_id=138870837 instance=ExtResource("1_je4wl")]
+script = ExtResource("2_1ysgs")
+email_address = "email@address.com"
+discord_channel = "https://discord.com/"
+
+[node name="Title" parent="." index="1"]
+text = "Report Bug"
+
+[node name="Panel" type="Panel" parent="." index="2" unique_id=1931382701]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -200.25
+offset_top = -212.0
+offset_right = 151.0
+offset_bottom = 12.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel" index="0" unique_id=602197224]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 5.570862
+offset_top = 3.0
+offset_right = -5.570862
+offset_bottom = -3.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="Label" type="Label" parent="Panel/VBoxContainer" index="0" unique_id=1253800900]
+custom_minimum_size = Vector2(1, 0)
+layout_mode = 2
+text = "To report a bug, first open your logs folder:"
+autowrap_mode = 2
+
+[node name="OpenLogsButton" type="Button" parent="Panel/VBoxContainer" index="1" unique_id=1174413835]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 0
+text = "Open Logs Folder"
+
+[node name="Label2" type="Label" parent="Panel/VBoxContainer" index="2" unique_id=1617104390]
+custom_minimum_size = Vector2(1, 0)
+layout_mode = 2
+text = "Get the latest log file, and either send it to me on email or Discord:"
+autowrap_mode = 2
+
+[node name="OpenEmailButton" type="Button" parent="Panel/VBoxContainer" index="3" unique_id=373114749]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 0
+text = "Email"
+
+[node name="EmailAddressDisplay" type="Label" parent="Panel/VBoxContainer/OpenEmailButton" index="0" unique_id=1869575270]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 62.25
+offset_top = 7.0
+offset_right = 218.25
+offset_bottom = 30.0
+text = "email@address.com"
+
+[node name="OpenDiscordButton" type="Button" parent="Panel/VBoxContainer" index="4" unique_id=564267036]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 0
+text = "Discord"

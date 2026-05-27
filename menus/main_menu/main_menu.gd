@@ -5,6 +5,7 @@ extends Control
 @onready var new_game_button = %NewGameButton
 @onready var load_game_button = %LoadGameButton
 @onready var settings_button = %SettingsButton
+@onready var report_bug_button: Button = %ReportBugButton
 @onready var achievements_button = %AchievementsButton
 @onready var credits_button = %CreditsButton
 @onready var making_of_button = %MakingOfButton
@@ -17,6 +18,7 @@ extends Control
 @onready var settings_menu = %SettingsMenu
 @onready var credits_menu = %CreditsMenu
 @onready var load_game_menu = %LoadGameMenu
+@onready var bug_report_menu: Control = $Menus/BugReportMenu
 
 
 func _ready():
@@ -27,6 +29,7 @@ func _ready():
 	achievements_button.button_up.connect(switch_to_menu_screen.bind(achievements_menu))
 	credits_button.button_up.connect(switch_to_menu_screen.bind(credits_menu))
 	load_game_button.button_up.connect(switch_to_menu_screen.bind(load_game_menu))
+	report_bug_button.button_up.connect(switch_to_menu_screen.bind(bug_report_menu))
 	
 	continue_button.button_up.connect(continue_game)
 	new_game_button.button_up.connect(new_game)

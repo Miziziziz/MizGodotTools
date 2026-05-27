@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://5s7t68agfkb2"]
+[gd_scene format=3 uid="uid://5s7t68agfkb2"]
 
 [ext_resource type="Script" uid="uid://dvajwct83mit2" path="res://menus/main_menu/main_menu.gd" id="1_oic2i"]
 [ext_resource type="PackedScene" uid="uid://doxhfoom6rwew" path="res://menus/sub_menus/sub_menu.tscn" id="1_xbn2l"]
@@ -6,11 +6,12 @@
 [ext_resource type="PackedScene" uid="uid://yjbhgaa0ptx4" path="res://menus/sub_menus/simple_settings_menu/simple_settings_menu.tscn" id="3_oic2i"]
 [ext_resource type="PackedScene" uid="uid://xt67inn1itc" path="res://menus/sub_menus/credits_menu.tscn" id="4_er5qh"]
 [ext_resource type="PackedScene" uid="uid://bmtqj1h3365pr" path="res://menus/sub_menus/load_game_menu/load_game_menu.tscn" id="6_er5qh"]
+[ext_resource type="PackedScene" uid="uid://dfj5hfgalq035" path="res://menus/sub_menus/bug_report_menu/bug_report_menu.tscn" id="7_f7ts8"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_1nwmw"]
 font_size = 52
 
-[node name="MainMenu" type="Control"]
+[node name="MainMenu" type="Control" unique_id=887186885]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -19,7 +20,7 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_oic2i")
 
-[node name="Menus" type="Control" parent="."]
+[node name="Menus" type="Control" parent="." unique_id=1333339147]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -27,7 +28,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="IndexMenu" parent="Menus" instance=ExtResource("1_xbn2l")]
+[node name="IndexMenu" parent="Menus" unique_id=1670123052 instance=ExtResource("1_xbn2l")]
 unique_name_in_owner = true
 layout_mode = 1
 
@@ -43,7 +44,7 @@ text = "Game Name"
 label_settings = SubResource("LabelSettings_1nwmw")
 horizontal_alignment = 1
 
-[node name="Panel" type="Panel" parent="Menus/IndexMenu"]
+[node name="Panel" type="Panel" parent="Menus/IndexMenu" unique_id=1483240973]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -57,7 +58,7 @@ offset_bottom = 148.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="VBoxContainer" type="VBoxContainer" parent="Menus/IndexMenu/Panel"]
+[node name="VBoxContainer" type="VBoxContainer" parent="Menus/IndexMenu/Panel" unique_id=1490319467]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -65,71 +66,81 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="ContinueButton" type="Button" parent="Menus/IndexMenu/Panel/VBoxContainer"]
+[node name="ContinueButton" type="Button" parent="Menus/IndexMenu/Panel/VBoxContainer" unique_id=956330428]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_vertical = 3
 text = "Continue"
 
-[node name="NewGameButton" type="Button" parent="Menus/IndexMenu/Panel/VBoxContainer"]
+[node name="NewGameButton" type="Button" parent="Menus/IndexMenu/Panel/VBoxContainer" unique_id=1742817295]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_vertical = 3
 text = "New Game"
 
-[node name="LoadGameButton" type="Button" parent="Menus/IndexMenu/Panel/VBoxContainer"]
+[node name="LoadGameButton" type="Button" parent="Menus/IndexMenu/Panel/VBoxContainer" unique_id=1939332994]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_vertical = 3
 text = "Load Game"
 
-[node name="SettingsButton" type="Button" parent="Menus/IndexMenu/Panel/VBoxContainer"]
+[node name="SettingsButton" type="Button" parent="Menus/IndexMenu/Panel/VBoxContainer" unique_id=1507270471]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_vertical = 3
 text = "Settings"
 
-[node name="AchievementsButton" type="Button" parent="Menus/IndexMenu/Panel/VBoxContainer"]
+[node name="ReportBugButton" type="Button" parent="Menus/IndexMenu/Panel/VBoxContainer" unique_id=729363370]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 3
+text = "Report Bug"
+
+[node name="AchievementsButton" type="Button" parent="Menus/IndexMenu/Panel/VBoxContainer" unique_id=544646128]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_vertical = 3
 text = "Achievements"
 
-[node name="CreditsButton" type="Button" parent="Menus/IndexMenu/Panel/VBoxContainer"]
+[node name="CreditsButton" type="Button" parent="Menus/IndexMenu/Panel/VBoxContainer" unique_id=1946458620]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_vertical = 3
 text = "Credits"
 
-[node name="MakingOfButton" type="Button" parent="Menus/IndexMenu/Panel/VBoxContainer"]
+[node name="MakingOfButton" type="Button" parent="Menus/IndexMenu/Panel/VBoxContainer" unique_id=1367611183]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_vertical = 3
 text = "Making Of"
 
-[node name="ExitButton" type="Button" parent="Menus/IndexMenu/Panel/VBoxContainer"]
+[node name="ExitButton" type="Button" parent="Menus/IndexMenu/Panel/VBoxContainer" unique_id=439484498]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_vertical = 3
 text = "Exit"
 
-[node name="AchievementsMenu" parent="Menus" instance=ExtResource("2_ml8bw")]
+[node name="AchievementsMenu" parent="Menus" unique_id=916613002 instance=ExtResource("2_ml8bw")]
 unique_name_in_owner = true
 visible = false
 layout_mode = 1
 
-[node name="SettingsMenu" parent="Menus" instance=ExtResource("3_oic2i")]
+[node name="SettingsMenu" parent="Menus" unique_id=892721235 instance=ExtResource("3_oic2i")]
 unique_name_in_owner = true
 visible = false
 layout_mode = 1
 
-[node name="CreditsMenu" parent="Menus" instance=ExtResource("4_er5qh")]
+[node name="CreditsMenu" parent="Menus" unique_id=1662448959 instance=ExtResource("4_er5qh")]
 unique_name_in_owner = true
 visible = false
 layout_mode = 1
 
-[node name="LoadGameMenu" parent="Menus" instance=ExtResource("6_er5qh")]
+[node name="LoadGameMenu" parent="Menus" unique_id=519010403 instance=ExtResource("6_er5qh")]
 unique_name_in_owner = true
+visible = false
+layout_mode = 1
+
+[node name="BugReportMenu" parent="Menus" unique_id=138870837 instance=ExtResource("7_f7ts8")]
 visible = false
 layout_mode = 1
 

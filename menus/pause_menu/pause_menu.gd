@@ -42,6 +42,8 @@ func toggle_pause_menu():
 	visible = p
 	if p:
 		switch_to_menu_screen(index_menu)
+	else:
+		settings_menu.save_settings()
 
 func switch_to_menu_screen(menu_to_switch_to : SubMenu):
 	for menu in menus:
