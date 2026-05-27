@@ -7,7 +7,7 @@ extends ScrollContainer
 @onready var mouse_x_invert_check_box: CheckBox = $VBoxContainer/MouseInvertX/CheckBox
 @onready var mouse_y_invert_check_box: CheckBox = $VBoxContainer/MouseInvertY/CheckBox
 
-const KEYBIND_INPUT_SECTION = preload("res://settings_menu/keybind_input_section.tscn")
+const KEYBIND_INPUT_SECTION = preload("uid://cil0aai0p0nbh")
 
 # list all rebindable input actions
 const ALL_INPUT_ACTIONS = [

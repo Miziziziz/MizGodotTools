@@ -2,7 +2,6 @@ extends ScrollContainer
 
 @onready var difficulty_drop_down: OptionButton = $VBoxContainer/Difficulty/OptionButton
 
-
 func _ready():
 	difficulty_drop_down.item_selected.connect(update_difficulty)
 

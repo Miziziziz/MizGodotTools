@@ -13,6 +13,9 @@ const SETTINGS_SAVE_FILE := "user://settings.save"
 @onready var vsync_check_box = $Panel/VBoxContainer/Vsync/CheckBox
 @onready var fps_display_check_box = $Panel/VBoxContainer/FpsDisplay/CheckBox
 
+@onready var change_language_button: Button = %ChangeLanguageButton
+@onready var choose_language_menu: SubMenu = $ChooseLanguageMenu
+
 
 func _ready() -> void:
 	back_button.button_up.connect(save_settings)
@@ -24,10 +27,15 @@ func _ready() -> void:
 	vsync_check_box.toggled.connect(update_vsync)
 	fps_display_check_box.toggled.connect(update_fps_display)
 	
+	change_language_button.button_up.connect(open_choose_language_menu)
+	choose_language_menu.back_button.button_up.connect(choose_language_menu.hide)
+	
 	# make sure loading is done after _ready is called on all children and everything in the scene
 	await get_tree().process_frame
 	load_settings()
-	
+
+func open_choose_language_menu():
+	choose_language_menu.open()
 
 func update_fullscreen(is_fullscreen: bool):
 	if is_fullscreen:
@@ -85,7 +93,8 @@ func save_settings():
 	settings_data.is_fullscreen = fullscreen_check_box.button_pressed
 	settings_data.vsync_on = vsync_check_box.button_pressed
 	settings_data.fps_display_on = fps_display_check_box.button_pressed
-	
+	settings_data.locale = TranslationServer.get_locale()
+
 	var save_file = FileAccess.open(SETTINGS_SAVE_FILE, FileAccess.WRITE)
 	save_file.store_line(JSON.stringify(settings_data))
 
@@ -113,3 +122,6 @@ func load_settings():
 		vsync_check_box.button_pressed = settings_data.vsync_on
 	if "fps_display_on" in settings_data:
 		fps_display_check_box.button_pressed = settings_data.fps_display_on
+	if "locale" in settings_data:
+		TranslationServer.set_locale(settings_data.locale)
+		get_tree().call_group("choose_language_menu", "set_locale_was_loaded")

@@ -2,6 +2,7 @@ extends SubMenu
 
 @onready var buttons_container = %ButtonsContainer
 const LOAD_GAME_BUTTON_FORMAT = "{file_name} : {info}"
+@onready var manage_save_files_button: Button = $Panel/ManageSaveFilesButton
 
 func _ready():
 	for c in buttons_container.get_children():
@@ -19,3 +20,8 @@ func _ready():
 		button.alignment = HORIZONTAL_ALIGNMENT_LEFT
 		button.button_up.connect(SaveManager.load_game_from_file.bind(save_file_path))
 		buttons_container.add_child(button)
+	manage_save_files_button.button_up.connect(open_save_folder)
+
+func open_save_folder():
+	var path = ProjectSettings.globalize_path(SaveManager.SAVE_FILE_DIRECTORY)
+	OS.shell_open(path)

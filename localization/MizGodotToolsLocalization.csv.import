@@ -1,0 +1,19 @@
+[remap]
+
+importer="csv_translation"
+type="Translation"
+uid="uid://crp5tc1ede1a"
+
+[deps]
+
+files=["res://localization/MizGodotToolsLocalization.en.translation", "res://localization/MizGodotToolsLocalization.es.translation", "res://localization/MizGodotToolsLocalization.pt.translation"]
+
+source_file="res://localization/MizGodotToolsLocalization.csv"
+dest_files=["res://localization/MizGodotToolsLocalization.en.translation", "res://localization/MizGodotToolsLocalization.es.translation", "res://localization/MizGodotToolsLocalization.pt.translation"]
+
+[params]
+
+compress=1
+delimiter=0
+unescape_keys=false
+unescape_translations=true

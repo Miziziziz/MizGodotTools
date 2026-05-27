@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://xt67inn1itc" path="res://menus/sub_menus/credits_menu.tscn" id="4_er5qh"]
 [ext_resource type="PackedScene" uid="uid://bmtqj1h3365pr" path="res://menus/sub_menus/load_game_menu/load_game_menu.tscn" id="6_er5qh"]
 [ext_resource type="PackedScene" uid="uid://dfj5hfgalq035" path="res://menus/sub_menus/bug_report_menu/bug_report_menu.tscn" id="7_f7ts8"]
+[ext_resource type="PackedScene" uid="uid://bgm4rtfpgwshc" path="res://menus/sub_menus/choose_language_menu/choose_language_menu.tscn" id="8_81su3"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_1nwmw"]
 font_size = 52
@@ -143,5 +144,10 @@ layout_mode = 1
 [node name="BugReportMenu" parent="Menus" unique_id=138870837 instance=ExtResource("7_f7ts8")]
 visible = false
 layout_mode = 1
+
+[node name="ChooseLanguageMenu" parent="." unique_id=2063071084 instance=ExtResource("8_81su3")]
+visible = false
+layout_mode = 1
+show_on_start_if_no_locale_loaded = true
 
 [editable path="Menus/IndexMenu"]

@@ -6,16 +6,23 @@ extends SubMenu
 @onready var gameplay_settings_menu: ScrollContainer = $TabContainer/Gameplay
 @onready var controls_settings_menu: ScrollContainer = $TabContainer/Controls
 
+@onready var choose_language_button: Button = %ChooseLanguageButton
+@onready var choose_language_menu: SubMenu = $ChooseLanguageMenu
+
 
 const SETTINGS_SAVE_FILE := "user://settings.save"
 
 func _ready() -> void:
 	back_button.button_up.connect(save_settings)
+	choose_language_button.button_up.connect(open_choose_language_menu)
+	choose_language_menu.back_button.button_up.connect(choose_language_menu.hide)
 	
 	# make sure loading is done after _ready is called on all children and everything in the scene
 	await get_tree().process_frame
 	load_settings()
 
+func open_choose_language_menu():
+	choose_language_menu.open()
 
 # setting value to itself will emit corresponding signal, calling whatever code is needed to set stuff
 func update_settings(node):
@@ -50,7 +57,8 @@ func save_settings():
 	settings_data.audio_settings = audio_settings_menu.get_settings_save_data()
 	settings_data.gameplay_settings = gameplay_settings_menu.get_settings_save_data()
 	settings_data.controls_settings = controls_settings_menu.get_settings_save_data()
-	
+	settings_data.locale = TranslationServer.get_locale()
+
 	var save_file = FileAccess.open(SETTINGS_SAVE_FILE, FileAccess.WRITE)
 	save_file.store_line(JSON.stringify(settings_data))
 
@@ -74,3 +82,6 @@ func load_settings():
 		graphics_settings_menu.load_settings_data(settings_data.graphics_settings)
 	if "gameplay_settings" in settings_data:
 		gameplay_settings_menu.load_settings_data(settings_data.gameplay_settings)
+	if "locale" in settings_data:
+		TranslationServer.set_locale(settings_data.locale)
+		get_tree().call_group("choose_language_menu", "set_locale_was_loaded")

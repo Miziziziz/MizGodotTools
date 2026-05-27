@@ -29,10 +29,11 @@ offset_right = 380.0
 offset_bottom = 221.5
 grow_horizontal = 2
 grow_vertical = 2
-current_tab = 0
+current_tab = 2
 
 [node name="Graphics" type="ScrollContainer" parent="TabContainer" index="1" unique_id=1158386322]
 unique_name_in_owner = true
+visible = false
 layout_mode = 2
 script = ExtResource("3_t8ni5")
 metadata/_tab_index = 0
@@ -195,12 +196,6 @@ layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 0.1
 
-[node name="ChooseLanguageButton" type="Button" parent="TabContainer/Graphics/VBoxContainer" index="7" unique_id=951846233]
-unique_name_in_owner = true
-layout_mode = 2
-size_flags_horizontal = 4
-text = "Choose Language"
-
 [node name="Audio" type="ScrollContainer" parent="TabContainer" index="2" unique_id=772265894]
 visible = false
 layout_mode = 2
@@ -285,7 +280,6 @@ size_flags_horizontal = 3
 size_flags_stretch_ratio = 0.1
 
 [node name="Gameplay" type="ScrollContainer" parent="TabContainer" index="3" unique_id=466641520]
-visible = false
 layout_mode = 2
 script = ExtResource("6_sf0uk")
 metadata/_tab_index = 2
@@ -326,6 +320,12 @@ popup/item_3/id = 3
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 0.1
+
+[node name="ChooseLanguageButton" type="Button" parent="TabContainer/Gameplay/VBoxContainer" index="2" unique_id=951846233]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Choose Language"
 
 [node name="Controls" type="ScrollContainer" parent="TabContainer" index="4" unique_id=335164337]
 visible = false
